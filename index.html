@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATLAS Infrastructure Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav>
+    <a href="#/" class="nav-logo" data-link>
+      <div class="nav-logo-mark"><span>A</span></div>
+      <span class="nav-logo-text">ATLAS Infrastructure</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#/about" data-link>About</a></li>
+      <li><a href="#/services" data-link>Services</a></li>
+      <li><a href="#/solutions" data-link>Solutions</a></li>
+      <li><a href="#/projects" data-link>Projects</a></li>
+      <li><a href="#/why-us" data-link>Why ATLAS</a></li>
+      <li><a href="#/news" data-link>News</a></li>
+    </ul>
+    <a href="#/contact" class="nav-cta" data-link>Contact Us</a>
+  </nav>
+
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
