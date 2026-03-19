@@ -1,3 +1,56 @@
+/* ── HAMBURGER MENU ────────────────────────────────────────── */
+(function() {
+  function initHam() {
+    var btn = document.getElementById('navHam');
+    var overlay = document.getElementById('navOverlay');
+    if (!btn || !overlay) return;
+
+    function openMenu() {
+      btn.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      btn.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', function() {
+      if (overlay.classList.contains('open')) closeMenu();
+      else openMenu();
+    });
+
+    // Close on any link click inside overlay
+    overlay.querySelectorAll('[data-link]').forEach(function(a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    // Close on outside click
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeMenu();
+    });
+  }
+
+  // Run on load and after every route render
+  document.addEventListener('DOMContentLoaded', initHam);
+  window.addEventListener('routeRendered', initHam);
+})();
+
+/* ── MAP RESIZE FIX ────────────────────────────────────────── */
+// Force Leaflet to recalculate size when container becomes visible
+(function() {
+  var mapResizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(mapResizeTimer);
+    mapResizeTimer = setTimeout(function() {
+      if (window._atlasMap) {
+        window._atlasMap.invalidateSize();
+      }
+    }, 200);
+  });
+})();
+
 // ── DATA ──────────────────────────────────────────────────────────────────
 const projects = [
   { id:'kano-epc', title:'Kano Industrial Power Plant', loc:'Kano, Nigeria', lat:12.0022, lng:8.5919, service:'EPC', status:'complete', capacity:'120 MW', value:'$340M', client:'Kano State Govt', year:'2021', tags:['EPC','Gas','Industrial'], desc:'Design, procurement and construction of a 120 MW combined-cycle gas power plant serving Kano State\'s industrial sector. Delivered 4 months ahead of schedule with zero LTIs.' },
@@ -961,6 +1014,7 @@ function initMap() {
       zoomControl: true,
       attributionControl: false,
     });
+  window._atlasMap = map;
     mapInstance = map;
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
