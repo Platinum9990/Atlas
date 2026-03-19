@@ -190,11 +190,11 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
 .simple-card-title{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;color:var(--white);margin:0.75rem 0 0.6rem}
 .simple-card-desc{font-size:0.78rem;line-height:1.7;color:var(--slate-dim)}
 
-.landing-gallery{padding:4.5rem 3rem;border-bottom:1px solid rgba(14,165,233,0.1);background:var(--navy-2)}
+.landing-gallery{padding:4rem 3rem;border-bottom:1px solid rgba(14,165,233,0.1);background:var(--navy-2)}
 .landing-gallery-head{max-width:46rem;margin-bottom:2.5rem}
 .landing-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.gallery-card{position:relative;overflow:hidden;border:1px solid rgba(14,165,233,0.12);min-height:220px;background:var(--navy-3)}
-.gallery-card.feature{grid-column:span 2;min-height:320px}
+.gallery-card{position:relative;overflow:hidden;border:1px solid rgba(14,165,233,0.12);min-height:180px;background:var(--navy-3)}
+.gallery-card.feature{grid-column:span 2;min-height:240px}
 .gallery-card img{width:100%;height:100%;object-fit:cover;display:block}
 .gallery-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,15,30,0.1) 0%,rgba(8,15,30,0.75) 100%);opacity:0.85}
 .gallery-card figcaption{position:absolute;left:1rem;bottom:1rem;right:1rem;z-index:1}
@@ -215,7 +215,8 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
 
 @media(max-width:900px){
   .simple-hero{grid-template-columns:1fr;padding:4rem 1.5rem 3rem}
-  .simple-hero-panel{padding:2rem}
+  .simple-hero-panel{padding:1.25rem 0 0;background:transparent;border:none}
+  .simple-hero-card{background:var(--navy-2);border:1px solid rgba(14,165,233,0.12);padding:1.5rem}
   .simple-hero-photo{height:180px}
   .simple-stats{grid-template-columns:1fr 1fr}
   .simple-services{padding:3rem 1.5rem}
@@ -223,7 +224,8 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .simple-cta{padding:3rem 1.5rem;flex-direction:column;align-items:flex-start}
   .landing-gallery{padding:3rem 1.5rem}
   .landing-gallery-grid{grid-template-columns:1fr}
-  .gallery-card.feature{grid-column:span 1;min-height:240px}
+  .gallery-card{min-height:200px}
+  .gallery-card.feature{grid-column:span 1;min-height:220px}
 }
 @media(max-width:600px){
   .simple-stats{grid-template-columns:1fr}
@@ -619,17 +621,19 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
     min-height: 100svh;
   }
   .map-sidebar {
-    max-height: 260px;
+    max-height: none;
     border-right: none;
     border-bottom: 1px solid rgba(14,165,233,0.12);
   }
   .map-container {
-    height: 55vh;
+    height: 60vh;
     min-height: 300px;
   }
   #leaflet-map { width: 100% !important; height: 100% !important; }
-  .map-filter-bar { overflow-x: auto; white-space: nowrap; padding: 0.5rem 1rem; }
-  .map-project-list { overflow-y: auto; }
+  .map-filters { flex-wrap: nowrap; overflow-x: auto; }
+  .map-filters::-webkit-scrollbar { height: 3px; }
+  .map-filters::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.4); }
+  .map-project-list { flex: 0 0 auto; max-height: 34vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 
   /* Why us */
   .why-hero { grid-template-columns: 1fr; }
@@ -695,8 +699,8 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .service-full-item { grid-template-columns: 1fr; }
   .stat-grid { grid-template-columns: 1fr; }
   .page-banner h1 { font-size: clamp(2rem, 10vw, 3rem); }
-  .map-container { height: 50vh; }
-  .map-sidebar { max-height: 220px; }
+  .map-container { height: 55vh; }
+  .map-sidebar { max-height: none; }
   .section-pad-lg { padding: 2.5rem 1.25rem; }
   .solution-media { min-height: 200px; }
   .post-banner { height: 260px; }
@@ -704,7 +708,7 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
 
 .leaflet-container{background:#0D1A30 !important}
 .leaflet-tile{opacity:0.9}
-.custom-marker{width:14px;height:14px;border-radius:50%;border:2px solid;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative}
+.custom-marker{width:var(--marker-size,14px);height:var(--marker-size,14px);border-radius:50%;border:2px solid;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative}
 .custom-marker:hover{transform:scale(1.4)}
 .custom-marker.active-m{border-color:#0EA5E9;background:#0EA5E9;box-shadow:0 0 0 4px rgba(14,165,233,0.25)}
 .custom-marker.complete-m{border-color:#F59E0B;background:#F59E0B;box-shadow:0 0 0 4px rgba(245,158,11,0.2)}

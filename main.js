@@ -67,9 +67,9 @@ const projects = [
 
 const services = [
   { code:'SVC-01', title:'Engineering, Procurement & Construction', abbr:'EPC', desc:'Full-cycle EPC delivery for power generation, transmission and distribution infrastructure. From FEED through commissioning, ATLAS delivers on time and on budget — backed by a 100% project completion record across 23 countries.', tags:['Power Generation','Transmission','Distribution','Civil Works','Commissioning'], img:'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80' },
-  { code:'SVC-02', title:'Operations & Maintenance', abbr:'O&M', desc:'Long-term O&M contracts for power plants, substations and network assets. Our in-country teams maintain asset availability above 98% through preventive maintenance regimes and 24/7 response capability.', tags:['Preventive Maintenance','Emergency Response','SCADA','Asset Management'], img:'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900&q=80' },
+  { code:'SVC-02', title:'Operations & Maintenance', abbr:'O&M', desc:'Long-term O&M contracts for power plants, substations and network assets. Our in-country teams maintain asset availability above 98% through preventive maintenance regimes and 24/7 response capability.', tags:['Preventive Maintenance','Emergency Response','SCADA','Asset Management'], img:'Operations%20%26%20Maintenance.jpg' },
   { code:'SVC-03', title:'Build, Own, Operate & Transfer', abbr:'BOOT', desc:'We structure and deliver BOOT and PPP arrangements for power infrastructure — mobilising private capital, managing project risk and operating assets under long-term offtake agreements before transfer to public ownership.', tags:['Project Finance','PPP','Concession','Offtake Agreements'], img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80' },
-  { code:'SVC-04', title:'Energy Solutions', abbr:'Energy', desc:'Bespoke captive power, hybrid energy systems and distributed generation for industrial and commercial clients. We design, supply and operate systems that guarantee reliable power independent of the national grid.', tags:['Captive Power','Solar Hybrid','Gas Gensets','Battery Storage'], img:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=900&q=80' },
+  { code:'SVC-04', title:'Energy Solutions', abbr:'Energy', desc:'Bespoke captive power, hybrid energy systems and distributed generation for industrial and commercial clients. We design, supply and operate systems that guarantee reliable power independent of the national grid.', tags:['Captive Power','Solar Hybrid','Gas Gensets','Battery Storage'], img:'Energy%20Solutions.jpg' },
   { code:'SVC-05', title:'Advisory & Consulting', abbr:'Consulting', desc:'Technical, financial and regulatory advisory for energy sector stakeholders — from grid master planning and feasibility studies to transaction advisory and lender\'s engineer mandates.', tags:['Feasibility Studies','Grid Planning','Transaction Advisory','Due Diligence'], img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80' },
 ];
 
@@ -205,9 +205,9 @@ const footerHTML = () => `<footer>
 function homePage() {
   const heroImage = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80';
   const homeGallery = [
-    { title:'Combined-Cycle Commissioning', meta:'Kano, Nigeria', img:'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80' },
-    { title:'Solar Hybrid Deployment', meta:'Kaduna, Nigeria', img:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1200&q=80' },
-    { title:'Transmission Upgrade', meta:'Accra, Ghana', img:'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1200&q=80' },
+    { title:'Combined-Cycle Commissioning', meta:'Kano, Nigeria', img:'Power%20Plant.jpg' },
+    { title:'Solar Hybrid Deployment', meta:'Kaduna, Nigeria', img:'Solar%20Hybrid%20Deployment.jpg' },
+    { title:'Transmission Upgrade', meta:'Accra, Ghana', img:'download%20(2).jpg' },
     { title:'LNG Terminal Works', meta:'Dakar, Senegal', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80' },
     { title:'Grid Planning Studio', meta:'Lagos, Nigeria', img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80' },
   ];
@@ -450,9 +450,12 @@ function initMap() {
   setTimeout(() => {
     const mapEl = document.getElementById('leaflet-map');
     if (!mapEl) return;
+    const isMobile = window.innerWidth < 720;
+    const baseZoom = isMobile ? 4.5 : 4;
+    const markerSize = isMobile ? 10 : 14;
     const map = L.map('leaflet-map', {
       center: [8, 15],
-      zoom: 4,
+      zoom: baseZoom,
       zoomControl: true,
       attributionControl: false,
     });
@@ -475,9 +478,9 @@ function initMap() {
       const cls = p.status === 'active' ? 'active-m' : p.status === 'complete' ? 'complete-m' : 'pipeline-m';
       const icon = L.divIcon({
         className: '',
-        html: `<div class="custom-marker ${cls}" data-id="${p.id}"></div>`,
-        iconSize: [14,14],
-        iconAnchor: [7,7],
+        html: `<div class="custom-marker ${cls}" data-id="${p.id}" style="--marker-size:${markerSize}px"></div>`,
+        iconSize: [markerSize, markerSize],
+        iconAnchor: [markerSize / 2, markerSize / 2],
       });
       const marker = L.marker([p.lat, p.lng], {icon}).addTo(map);
       marker.on('click', () => selectProject(p.id, map));
@@ -518,7 +521,10 @@ window.selectProject = function(id, mapRef) {
     </div>`;
   panel.classList.add('open');
 
-  if (mapInstance) mapInstance.flyTo([p.lat, p.lng], 6, {duration: 1});
+  if (mapInstance) {
+    const focusZoom = window.innerWidth < 720 ? 5.2 : 6;
+    mapInstance.flyTo([p.lat, p.lng], focusZoom, {duration: 1});
+  }
 };
 
 window.closePanel = function() {
