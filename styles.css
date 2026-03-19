@@ -196,6 +196,15 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
 .simple-cta{padding:3.5rem 3rem;background:var(--navy-3);display:flex;justify-content:space-between;align-items:center;gap:2rem}
 .simple-cta p{font-size:0.85rem;color:var(--slate-dim);margin-top:0.5rem;max-width:30rem}
 
+/* SECTION PADDING + SOLUTIONS */
+.section-pad-lg{padding:5rem 3rem}
+.section-dark{background:var(--navy-2)}
+.solution-band{display:flex;flex-direction:row;border-bottom:1px solid rgba(14,165,233,0.1);min-height:500px}
+.solution-band.reverse{flex-direction:row-reverse}
+.solution-panel{flex:1;background:var(--navy-2);padding:5rem 3rem;display:flex;flex-direction:column;justify-content:center}
+.solution-panel.navy-3{background:var(--navy-3)}
+.solution-media{flex:1;min-height:400px;background-position:center;background-size:cover;background-repeat:no-repeat}
+
 @media(max-width:900px){
   .simple-hero{grid-template-columns:1fr;padding:4rem 1.5rem 3rem}
   .simple-hero-panel{padding:2rem}
@@ -579,6 +588,12 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .about-text { padding: 2.5rem 1.25rem; }
   .values-grid-full { grid-template-columns: 1fr; }
   .leadership-grid { grid-template-columns: 1fr 1fr; }
+  .section-pad-lg { padding: 3rem 1.25rem; }
+  .solution-band { flex-direction: column; min-height: auto; }
+  .solution-band.reverse { flex-direction: column; }
+  .solution-panel { padding: 2.5rem 1.25rem; }
+  .solution-media { min-height: 240px; }
+  .post-banner { height: 320px; }
 
   .services-full { padding: 2.5rem 1.25rem; }
   .service-full-item { grid-template-columns: 40px 1fr; gap: 1.25rem; }
@@ -670,6 +685,9 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .page-banner h1 { font-size: clamp(2rem, 10vw, 3rem); }
   .map-container { height: 50vh; }
   .map-sidebar { max-height: 220px; }
+  .section-pad-lg { padding: 2.5rem 1.25rem; }
+  .solution-media { min-height: 200px; }
+  .post-banner { height: 260px; }
 }
 
 .leaflet-container{background:#0D1A30 !important}

@@ -291,7 +291,7 @@ function aboutPage() {
       <a href="#/why-us" class="btn-primary" data-link style="margin-top:1rem">Why Choose ATLAS</a>
     </div>
   </div>
-  <div style="padding:5rem 3rem;background:var(--navy-2)">
+  <div class="section-pad-lg section-dark">
     <div class="tag" style="margin-bottom:1.5rem">Our Values</div>
     <h2 class="section-title" style="margin-bottom:0">What we<br><em>stand for.</em></h2>
     <div class="values-grid-full">
@@ -299,7 +299,7 @@ function aboutPage() {
       <div class="value-card-full"><div class="vcf-num">// ${n}</div><div class="vcf-title">${t}</div><div class="vcf-desc">${d}</div></div>`).join('')}
     </div>
   </div>
-  <div style="padding:5rem 3rem">
+  <div class="section-pad-lg">
     <div class="tag" style="margin-bottom:1.5rem">Leadership</div>
     <h2 class="section-title" style="margin-bottom:3rem">The team behind<br><em>ATLAS.</em></h2>
     <div class="leadership-grid">
@@ -357,8 +357,8 @@ function solutionsPage() {
     <p>Every energy challenge is different. ATLAS configures its capabilities around your specific requirement — whether that's guaranteed captive power, a clean energy transition, or grid infrastructure that actually works.</p>
   </div>
   ${solutions.map((sol,i)=>`
-  <div style="display:flex;flex-direction:${i%2===0?'row':'row-reverse'};border-bottom:1px solid rgba(14,165,233,0.1);min-height:500px">
-    <div style="flex:1;background:var(--navy-${i===0?'2':'3'});padding:5rem 3rem;display:flex;flex-direction:column;justify-content:center">
+  <div class="solution-band${i%2===0?'':' reverse'}">
+    <div class="solution-panel${i===0?'':' navy-3'}">
       <div class="tag" style="margin-bottom:1rem">${sol.sub}</div>
       <h2 class="section-title" style="margin-bottom:1.5rem">${sol.title}</h2>
       <p class="body-text" style="margin-bottom:2rem">${sol.desc}</p>
@@ -367,7 +367,7 @@ function solutionsPage() {
       </div>
       <a href="#/contact" class="btn-primary" data-link>Enquire Now</a>
     </div>
-    <div style="flex:1;background:url('${sol.img}') center/cover no-repeat;min-height:400px"></div>
+    <div class="solution-media" style="background-image:url('${sol.img}')"></div>
   </div>`).join('')}
   <div class="cta-strip">
     <div><h2>Not sure which solution fits?</h2><p>Our advisory team will model your energy requirement and present the least-cost, most reliable solution for your context.</p></div>
@@ -545,7 +545,7 @@ function whyUsPage() {
       </div>`).join('')}
     </div>
   </div>
-  <div style="padding:5rem 3rem">
+  <div class="section-pad-lg">
     <div class="tag" style="margin-bottom:1.5rem">Client Trust</div>
     <h2 class="section-title" style="margin-bottom:3rem">Trusted by Africa's<br><em>leading organisations.</em></h2>
     <div class="trust-strip">
@@ -684,7 +684,7 @@ function contactPage() {
       <div class="success-msg">Thank you. A member of our business development team will be in touch within one business day.</div>
     </div>
   </div>
-  <div style="padding:5rem 3rem;background:var(--navy-2)">
+  <div class="section-pad-lg section-dark">
     <div class="tag" style="margin-bottom:1.5rem">Our Offices</div>
     <h2 class="section-title" style="margin-bottom:3rem">Present across<br><em>Africa.</em></h2>
     <div class="offices-grid">
