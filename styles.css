@@ -619,7 +619,7 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   /* MAP — stack map above sidebar */
   .map-page {
     grid-template-columns: 1fr;
-    grid-template-rows: 60vh auto;
+    grid-template-rows: 52vh auto;
     height: auto;
     min-height: 100svh;
   }
@@ -628,17 +628,20 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
     max-height: none;
     border-right: none;
     border-bottom: 1px solid rgba(14,165,233,0.12);
+    padding-bottom: 1rem;
   }
   .map-container {
     order: 1;
-    height: 60vh;
-    min-height: 300px;
+    height: 52vh;
+    min-height: 260px;
   }
   #leaflet-map { width: 100% !important; height: 100% !important; }
-  .map-filters { flex-wrap: nowrap; overflow-x: auto; }
+  .map-sidebar-header { padding: 1.75rem 1.5rem 1.25rem; }
+  .map-filters { flex-wrap: nowrap; overflow-x: auto; padding: 0.75rem 1.5rem 1rem; }
   .map-filters::-webkit-scrollbar { height: 3px; }
   .map-filters::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.4); }
-  .map-project-list { flex: 0 0 auto; max-height: 34vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .map-project-list { flex: 0 0 auto; max-height: 45vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .map-project-item { padding: 1.5rem 1.5rem; }
 
   /* Why us */
   .why-hero { grid-template-columns: 1fr; }
@@ -704,9 +707,9 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .service-full-item { grid-template-columns: 1fr; }
   .stat-grid { grid-template-columns: 1fr; }
   .page-banner h1 { font-size: clamp(2rem, 10vw, 3rem); }
-  .map-container { height: 55vh; }
+  .map-container { height: 50vh; }
   .map-sidebar { max-height: none; }
-  .map-page { grid-template-rows: 55vh auto; }
+  .map-page { grid-template-rows: 50vh auto; }
   .section-pad-lg { padding: 2.5rem 1.25rem; }
   .solution-media { min-height: 200px; }
   .post-banner { height: 260px; }
