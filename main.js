@@ -203,6 +203,14 @@ const footerHTML = () => `<footer>
 // ── PAGES ──────────────────────────────────────────────────────────────────
 
 function homePage() {
+  const heroImage = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80';
+  const homeGallery = [
+    { title:'Combined-Cycle Commissioning', meta:'Kano, Nigeria', img:'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80' },
+    { title:'Solar Hybrid Deployment', meta:'Kaduna, Nigeria', img:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1200&q=80' },
+    { title:'Transmission Upgrade', meta:'Accra, Ghana', img:'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1200&q=80' },
+    { title:'LNG Terminal Works', meta:'Dakar, Senegal', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80' },
+    { title:'Grid Planning Studio', meta:'Lagos, Nigeria', img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80' },
+  ];
   return `
   <section class="simple-hero">
     <div class="simple-hero-content">
@@ -229,6 +237,7 @@ function homePage() {
       </div>
     </div>
     <div class="simple-hero-panel">
+      <img class="simple-hero-photo" src="${heroImage}" alt="ATLAS infrastructure construction site" loading="lazy">
       <div class="simple-hero-card">
         <div class="mono-label">At a glance</div>
         <h3>End-to-end delivery</h3>
@@ -243,6 +252,24 @@ function homePage() {
     </div>
   </section>
 
+  <section class="landing-gallery">
+    <div class="landing-gallery-head">
+      <div class="tag">In the Field</div>
+      <h2 class="section-title">Project moments<br><em>in motion.</em></h2>
+      <p class="body-text">A snapshot of the teams, assets and environments where ATLAS delivers. These images capture the scale of our work across generation, transmission and advisory mandates.</p>
+    </div>
+    <div class="landing-gallery-grid">
+      ${homeGallery.map((g,i)=>`
+      <figure class="gallery-card${i === 0 ? ' feature' : ''}">
+        <img src="${g.img}" alt="${g.title}" loading="lazy">
+        <figcaption>
+          <div class="gallery-title">${g.title}</div>
+          <div class="gallery-meta">${g.meta}</div>
+        </figcaption>
+      </figure>`).join('')}
+    </div>
+  </section>
+
   <section class="simple-services">
     <div class="simple-section-head">
       <div class="tag">Services</div>
@@ -251,6 +278,7 @@ function homePage() {
     <div class="simple-card-grid">
       ${services.slice(0,3).map(s => `
       <div class="simple-card">
+        <img class="simple-card-img" src="${s.img}" alt="${s.title}" loading="lazy">
         <div class="mono-label">${s.abbr}</div>
         <div class="simple-card-title">${s.title}</div>
         <div class="simple-card-desc">${s.desc}</div>
@@ -697,20 +725,6 @@ function contactPage() {
 function notFound() {
   return `<div class="not-found"><div class="not-found-num">404</div><h2>Page Not Found</h2><p>This page does not exist or has been moved.</p><a href="#/" class="btn-primary" data-link>Return Home</a></div>`;
 }
-
-// ── CURSOR ──────────────────────────────────────────────────────────────────
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => {
-  mx=e.clientX; my=e.clientY;
-  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
-});
-(function animRing(){
-  rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-})();
 
 // ── INIT ────────────────────────────────────────────────────────────────────
 window.addEventListener('hashchange', router);
