@@ -203,99 +203,590 @@ const footerHTML = () => `<footer>
 // â”€â”€ PAGES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function homePage() {
-  const heroImage = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80';
-  const homeGallery = [
-    { title:'Combined-Cycle Commissioning', meta:'Kano, Nigeria', img:'Power%20Plant.jpg' },
-    { title:'Solar Hybrid Deployment', meta:'Kaduna, Nigeria', img:'Solar%20Hybrid%20Deployment.jpg' },
-    { title:'Transmission Upgrade', meta:'Accra, Ghana', img:'download%20(2).jpg' },
-    { title:'LNG Terminal Works', meta:'Dakar, Senegal', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80' },
-    { title:'Grid Planning Studio', meta:'Lagos, Nigeria', img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80' },
-  ];
   return `
-  <section class="simple-hero">
-    <div class="simple-hero-content">
-      <div class="tag">ATLAS Infrastructure</div>
-      <h1 class="display-title">Powering growth<br><em>across Africa.</em></h1>
-      <p class="simple-hero-text">We deliver EPC, O&amp;M, BOOT and energy solutions for public and private clients. From feasibility to long-term operations, ATLAS provides reliable infrastructure that keeps industry moving.</p>
-      <div class="simple-hero-actions">
-        <a href="#/projects" class="btn-primary" data-link>View Projects</a>
-        <a href="#/contact" class="btn-outline" data-link>Get in Touch</a>
+  <style>
+    /* ── ATLAS HOME v2 ─────────────────────────── */
+
+    /* Hero */
+    .ah-hero {
+      min-height: 100svh;
+      padding: calc(64px + 4rem) 3rem 0;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, var(--navy) 60%, #0C1E3A 100%);
+      border-bottom: 1px solid rgba(14,165,233,0.12);
+    }
+    .ah-hero::before {
+      content: '';
+      position: absolute; top: -30%; right: -10%;
+      width: 65vw; height: 65vw; max-width: 700px; max-height: 700px;
+      background: radial-gradient(ellipse, rgba(14,165,233,0.1) 0%, transparent 65%);
+      animation: ahBlob 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes ahBlob {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(-4%, 8%) scale(1.08); }
+    }
+
+    .ah-tag {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 2.5rem; position: relative; z-index: 1;
+    }
+    .ah-tag-line { width: 2rem; height: 1px; background: var(--blue); flex-shrink: 0; }
+
+    .ah-hero-body { position: relative; z-index: 1; }
+
+    .ah-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(4rem, 11vw, 10rem);
+      font-weight: 700; line-height: 0.9;
+      letter-spacing: -0.02em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 2.5rem;
+    }
+    .ah-title .t-blue { color: var(--blue); }
+    .ah-title .t-amber { color: #D4A853; }
+    .ah-title .t-outline {
+      -webkit-text-stroke: 2px rgba(255,255,255,0.25);
+      color: transparent;
+    }
+
+    .ah-hero-foot {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 2rem;
+      border-top: 1px solid rgba(14,165,233,0.15);
+      padding: 2rem 0; position: relative; z-index: 1;
+    }
+    .ah-desc {
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+      color: rgba(203,213,225,0.65);
+      max-width: 360px; line-height: 1.75; font-style: italic;
+    }
+    .ah-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .ah-btn-main {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: var(--blue); color: var(--navy);
+      padding: 0.9rem 1.75rem; text-decoration: none;
+      transition: background 0.2s; cursor: pointer; display: inline-block;
+    }
+    .ah-btn-main:hover { background: #D4A853; }
+    .ah-btn-ghost {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.9rem 1.75rem; text-decoration: none;
+      transition: border-color 0.2s; cursor: pointer; display: inline-block;
+    }
+    .ah-btn-ghost:hover { border-color: rgba(255,255,255,0.6); }
+
+    /* Stats bar at bottom of hero */
+    .ah-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(14,165,233,0.12);
+      position: relative; z-index: 1;
+    }
+    .ah-stat {
+      padding: 1.75rem 1.5rem;
+      border-right: 1px solid rgba(14,165,233,0.12);
+    }
+    .ah-stat:last-child { border-right: none; }
+    .ah-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1; margin-bottom: 0.25rem; letter-spacing: -0.02em;
+    }
+    .ah-stat-num .unit { font-size: 0.55em; font-weight: 400; opacity: 0.5; }
+    .ah-stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.52rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--blue);
+    }
+
+    /* Ticker */
+    .ah-ticker {
+      background: var(--blue); padding: 0.65rem 0;
+      overflow: hidden; white-space: nowrap;
+    }
+    .ah-ticker-track {
+      display: inline-flex;
+      animation: ahTicker 30s linear infinite;
+    }
+    .ah-ticker-track:hover { animation-play-state: paused; }
+    @keyframes ahTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ah-ticker-item {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--navy); padding: 0 2rem;
+      display: inline-flex; align-items: center; gap: 2rem;
+    }
+    .ah-ticker-sep { opacity: 0.35; font-size: 0.45rem; }
+
+    /* Services */
+    .ah-services { padding: 4rem 3rem; border-bottom: 1px solid rgba(14,165,233,0.1); }
+    .ah-section-top {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 2rem; padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(14,165,233,0.1);
+    }
+    .ah-section-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue);
+    }
+    .ah-section-link {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--slate); text-decoration: none; transition: color 0.2s;
+    }
+    .ah-section-link:hover { color: var(--blue); }
+
+    .ah-svc-list { display: flex; flex-direction: column; gap: 0; }
+    .ah-svc {
+      display: flex; align-items: center; gap: 2rem;
+      padding: 1.35rem 0; border-bottom: 1px solid rgba(14,165,233,0.08);
+      text-decoration: none; cursor: pointer;
+      position: relative; overflow: hidden;
+      transition: padding-left 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ah-svc:last-child { border-bottom: none; }
+    .ah-svc::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(14,165,233,0.04);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ah-svc:hover::before { transform: scaleX(1); }
+    .ah-svc:hover { padding-left: 1rem; }
+    .ah-svc-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.52rem; letter-spacing: 0.12em;
+      color: rgba(14,165,233,0.35); min-width: 24px;
+    }
+    .ah-svc-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase;
+      color: var(--white); flex: 1; transition: color 0.2s;
+    }
+    .ah-svc:hover .ah-svc-name { color: var(--blue); }
+    .ah-svc-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--slate); background: rgba(255,255,255,0.05);
+      padding: 0.25rem 0.65rem;
+    }
+    .ah-svc-arrow {
+      font-size: 1rem; color: var(--blue);
+      opacity: 0; transform: translateX(-8px);
+      transition: all 0.3s;
+    }
+    .ah-svc:hover .ah-svc-arrow { opacity: 1; transform: translateX(0); }
+
+    /* Proof strip */
+    .ah-proof {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(14,165,233,0.1);
+    }
+    .ah-proof-left {
+      padding: 4rem 3rem;
+      border-right: 1px solid rgba(14,165,233,0.1);
+    }
+    .ah-proof-right { padding: 4rem 3rem; background: var(--navy-2); }
+
+    .ah-proof-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700; text-transform: uppercase;
+      color: var(--white); line-height: 1;
+      letter-spacing: -0.01em; margin-bottom: 2rem;
+    }
+    .ah-proof-heading .hl { color: var(--blue); }
+
+    .ah-differentiators { display: flex; flex-direction: column; gap: 0; }
+    .ah-diff {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1rem 0; border-bottom: 1px solid rgba(14,165,233,0.08);
+    }
+    .ah-diff:last-child { border-bottom: none; }
+    .ah-diff-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.5rem; letter-spacing: 0.15em;
+      color: rgba(14,165,233,0.4); min-width: 20px; padding-top: 0.15rem;
+    }
+    .ah-diff-title {
+      font-size: 0.88rem; font-weight: 500; color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .ah-diff-desc { font-size: 0.75rem; color: var(--slate); line-height: 1.6; }
+
+    /* Featured project */
+    .ah-project-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .ah-project-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--blue); }
+
+    .ah-project-card {
+      background: rgba(14,165,233,0.05);
+      border: 1px solid rgba(14,165,233,0.15);
+      padding: 1.75rem;
+    }
+    .ah-proj-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem; font-weight: 700;
+      text-transform: uppercase; color: var(--white);
+      letter-spacing: 0.02em; margin-bottom: 0.4rem;
+    }
+    .ah-proj-loc {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 1rem;
+    }
+    .ah-proj-desc {
+      font-size: 0.82rem; color: var(--slate); line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .ah-proj-specs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; border: 1px solid rgba(14,165,233,0.12);
+    }
+    .ah-proj-spec {
+      padding: 0.75rem 1rem;
+      border-right: 1px solid rgba(14,165,233,0.12);
+      border-bottom: 1px solid rgba(14,165,233,0.12);
+    }
+    .ah-proj-spec:nth-child(even) { border-right: none; }
+    .ah-proj-spec:nth-last-child(-n+2) { border-bottom: none; }
+    .ah-proj-spec-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.48rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(14,165,233,0.4); margin-bottom: 0.2rem;
+    }
+    .ah-proj-spec-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem; font-weight: 600; color: var(--white);
+    }
+    .ah-proj-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1.25rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--blue); text-decoration: none; transition: gap 0.2s;
+    }
+    .ah-proj-link:hover { gap: 0.85rem; }
+
+    /* CTA strip */
+    .ah-cta {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 3.5rem 3rem; gap: 2rem; flex-wrap: wrap;
+      border-bottom: 1px solid rgba(14,165,233,0.1);
+      background: var(--navy-2);
+    }
+    .ah-cta-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; text-transform: uppercase;
+      color: var(--white); line-height: 1; margin-bottom: 0.5rem;
+    }
+    .ah-cta-sub {
+      font-size: 0.85rem; color: var(--slate);
+      line-height: 1.6; font-style: italic; max-width: 380px;
+    }
+    .ah-cta-actions { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
+
+    /* ── ACCENT BREAKS ─────────────────────────────────────── */
+
+    /* 1. Amber top rule on nav — the very first thing eyes hit */
+    .ah-top-rule {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 3px; z-index: 600;
+      background: linear-gradient(90deg,
+        #D4A853 0%,
+        var(--blue) 40%,
+        transparent 100%
+      );
+    }
+
+    /* 2. Hero title first word — outlined, not flat navy */
+    /* already handled by t-outline */
+
+    /* 3. Amber accent on hero stat numbers — last stat (value) */
+    .ah-stat:last-child .ah-stat-num { color: #D4A853; }
+
+    /* 4. Services section — amber left border on the section itself */
+    .ah-services {
+      border-left: 3px solid #D4A853;
+    }
+
+    /* 5. Service hover — amber instead of blue for contrast */
+    .ah-svc:hover .ah-svc-name { color: #D4A853 !important; }
+    .ah-svc:hover::before {
+      background: rgba(245,158,11,0.04) !important;
+    }
+    .ah-svc:hover .ah-svc-arrow { color: #D4A853 !important; }
+
+    /* 6. Proof section left — amber on the heading accent */
+    .ah-proof-left {
+      border-top: 3px solid #D4A853;
+    }
+    .ah-proof-right {
+      border-top: 3px solid var(--blue);
+    }
+
+    /* 7. Featured project card — amber left border */
+    .ah-project-card {
+      border-left: 3px solid #D4A853 !important;
+    }
+    .ah-proj-name { color: #D4A853 !important; }
+
+    /* 8. CTA strip — amber left accent bar */
+    .ah-cta {
+      border-left: 4px solid #D4A853;
+    }
+
+    /* 9. Stat section — alternating blue/amber accent dots */
+    .ah-stat:nth-child(odd)::before {
+      content: '';
+      display: block;
+      width: 20px; height: 2px;
+      background: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+    .ah-stat:nth-child(even)::before {
+      content: '';
+      display: block;
+      width: 20px; height: 2px;
+      background: #D4A853;
+      margin-bottom: 0.75rem;
+    }
+
+    /* 10. Hero bottom border — amber glow */
+    .ah-hero-foot {
+      border-top: 1px solid rgba(245,158,11,0.25) !important;
+      position: relative;
+    }
+    .ah-hero-foot::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 0;
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, #D4A853, transparent);
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .ah-hero { padding: calc(64px + 3rem) 1.5rem 0; }
+      .ah-hero-foot { flex-direction: column; align-items: flex-start; }
+      .ah-stats { grid-template-columns: 1fr 1fr; }
+      .ah-stat:nth-child(2) { border-right: none; }
+      .ah-stat:nth-child(3) { border-right: 1px solid rgba(14,165,233,0.12); }
+      .ah-stat:nth-child(4) { border-right: none; }
+      .ah-stat:nth-child(1), .ah-stat:nth-child(2) { border-bottom: 1px solid rgba(14,165,233,0.12); }
+      .ah-services { padding: 3rem 1.5rem; }
+      .ah-proof { grid-template-columns: 1fr; }
+      .ah-proof-left { border-right: none; border-bottom: 1px solid rgba(14,165,233,0.1); }
+      .ah-proof-left, .ah-proof-right { padding: 3rem 1.5rem; }
+      .ah-cta { flex-direction: column; align-items: flex-start; padding: 3rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .ah-title { font-size: clamp(3.2rem, 15vw, 5.5rem); }
+      .ah-stats { grid-template-columns: 1fr 1fr; }
+      .ah-proj-specs { grid-template-columns: 1fr; }
+      .ah-proj-spec { border-right: none !important; }
+    }
+  </style>
+
+  <div class="ah-top-rule"></div>
+
+  <!-- HERO -->
+  <section class="ah-hero">
+    <div class="ah-hero-body">
+      <div class="ah-tag">
+        <span class="ah-tag-line"></span>
+        Africa&rsquo;s Leading Infrastructure Contractor
       </div>
-      <div class="simple-stats">
-        <div class="simple-stat">
-          <div class="simple-stat-num">47</div>
-          <div class="simple-stat-label">Projects Delivered</div>
-        </div>
-        <div class="simple-stat">
-          <div class="simple-stat-num">23</div>
-          <div class="simple-stat-label">Countries</div>
-        </div>
-        <div class="simple-stat">
-          <div class="simple-stat-num">1,200</div>
-          <div class="simple-stat-label">MW Delivered</div>
-        </div>
+      <h1 class="ah-title">
+        <span class="t-outline" style="display:block">Power</span>
+        <span class="t-blue" style="display:block">Africa.</span>
+        <span class="t-amber" style="display:block">Zero failures.</span>
+      </h1>
+    </div>
+    <div class="ah-hero-foot">
+      <p class="ah-desc">Delivering EPC, O&amp;M, BOOT and energy solutions across 23 Sub-Saharan countries. Nearly 20 years. Not one missed milestone.</p>
+      <div class="ah-actions">
+        <a href="#/projects" class="ah-btn-main" data-link>View Projects</a>
+        <a href="#/contact" class="ah-btn-ghost" data-link>Discuss a Brief</a>
       </div>
     </div>
-    <div class="simple-hero-panel">
-      <img class="simple-hero-photo" src="${heroImage}" alt="ATLAS infrastructure construction site" loading="lazy">
-      <div class="simple-hero-card">
-        <div class="mono-label">At a glance</div>
-        <h3>End-to-end delivery</h3>
-        <p>One partner for design, construction, commissioning and long-term operations across generation, transmission and distribution.</p>
-        <ul class="simple-list">
-          <li>EPC contracting</li>
-          <li>Operations and maintenance</li>
-          <li>BOOT and PPP structures</li>
-          <li>Energy solutions</li>
-        </ul>
+    <div class="ah-stats">
+      <div class="ah-stat">
+        <div class="ah-stat-num">47</div>
+        <div class="ah-stat-label">Projects Delivered</div>
+      </div>
+      <div class="ah-stat">
+        <div class="ah-stat-num">23</div>
+        <div class="ah-stat-label">Countries</div>
+      </div>
+      <div class="ah-stat">
+        <div class="ah-stat-num">1,200<span class="unit"> MW</span></div>
+        <div class="ah-stat-label">Capacity Delivered</div>
+      </div>
+      <div class="ah-stat">
+        <div class="ah-stat-num">$4.2<span class="unit">B</span></div>
+        <div class="ah-stat-label">Portfolio Value</div>
       </div>
     </div>
   </section>
 
-  <section class="landing-gallery">
-    <div class="landing-gallery-head">
-      <div class="tag">In the Field</div>
-      <h2 class="section-title">Project moments<br><em>in motion.</em></h2>
-      <p class="body-text">A snapshot of the teams, assets and environments where ATLAS delivers. These images capture the scale of our work across generation, transmission and advisory mandates.</p>
+  <!-- TICKER -->
+  <div class="ah-ticker">
+    <div class="ah-ticker-track">
+      <span class="ah-ticker-item">EPC Contracting <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">Operations &amp; Maintenance <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">BOOT Projects <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">Energy Solutions <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">23 Countries <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">Zero Missed Milestones <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">$4.2B Portfolio <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">EPC Contracting <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">Operations &amp; Maintenance <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">BOOT Projects <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">Energy Solutions <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">23 Countries <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">Zero Missed Milestones <span class="ah-ticker-sep">&#9670;</span></span>
+      <span class="ah-ticker-item">$4.2B Portfolio <span class="ah-ticker-sep">&#9670;</span></span>
     </div>
-    <div class="landing-gallery-grid">
-      ${homeGallery.map((g,i)=>`
-      <figure class="gallery-card${i === 0 ? ' feature' : ''}">
-        <img src="${g.img}" alt="${g.title}" loading="lazy">
-        <figcaption>
-          <div class="gallery-title">${g.title}</div>
-          <div class="gallery-meta">${g.meta}</div>
-        </figcaption>
-      </figure>`).join('')}
+  </div>
+
+  <!-- SERVICES -->
+  <section class="ah-services">
+    <div class="ah-section-top">
+      <span class="ah-section-label">What We Do</span>
+      <a href="#/services" class="ah-section-link" data-link>Full Detail &rarr;</a>
+    </div>
+    <div class="ah-svc-list">
+      <a href="#/services" class="ah-svc" data-link>
+        <span class="ah-svc-num">01</span>
+        <span class="ah-svc-name">EPC Contracting</span>
+        <span class="ah-svc-tag">Design &bull; Build &bull; Deliver</span>
+        <span class="ah-svc-arrow">&rarr;</span>
+      </a>
+      <a href="#/services" class="ah-svc" data-link>
+        <span class="ah-svc-num">02</span>
+        <span class="ah-svc-name">Operations &amp; Maintenance</span>
+        <span class="ah-svc-tag">24/7 &bull; Long-Term</span>
+        <span class="ah-svc-arrow">&rarr;</span>
+      </a>
+      <a href="#/services" class="ah-svc" data-link>
+        <span class="ah-svc-num">03</span>
+        <span class="ah-svc-name">BOOT Projects</span>
+        <span class="ah-svc-tag">No Upfront Capital</span>
+        <span class="ah-svc-arrow">&rarr;</span>
+      </a>
+      <a href="#/services" class="ah-svc" data-link>
+        <span class="ah-svc-num">04</span>
+        <span class="ah-svc-name">Energy Solutions &amp; Sales</span>
+        <span class="ah-svc-tag">Captive &bull; Grid &bull; Hybrid</span>
+        <span class="ah-svc-arrow">&rarr;</span>
+      </a>
+      <a href="#/services" class="ah-svc" data-link>
+        <span class="ah-svc-num">05</span>
+        <span class="ah-svc-name">Grid Infrastructure</span>
+        <span class="ah-svc-tag">Transmission &bull; Distribution</span>
+        <span class="ah-svc-arrow">&rarr;</span>
+      </a>
     </div>
   </section>
 
-  <section class="simple-services">
-    <div class="simple-section-head">
-      <div class="tag">Services</div>
-      <a href="#/services" class="simple-link" data-link>All Services -></a>
+  <!-- PROOF + FEATURED PROJECT -->
+  <section class="ah-proof">
+    <div class="ah-proof-left">
+      <h2 class="ah-proof-heading">Twenty years.<br><span class="hl">One standard.</span></h2>
+      <div class="ah-differentiators">
+        <div class="ah-diff">
+          <div class="ah-diff-num">01</div>
+          <div>
+            <div class="ah-diff-title">Pan-African Reach</div>
+            <div class="ah-diff-desc">Operating across 23 Sub-Saharan countries with established local partnerships and regulatory expertise in every market.</div>
+          </div>
+        </div>
+        <div class="ah-diff">
+          <div class="ah-diff-num">02</div>
+          <div>
+            <div class="ah-diff-title">End-to-End Delivery</div>
+            <div class="ah-diff-desc">From feasibility through commissioning and long-term O&amp;M. One contractor. Complete accountability. No handover gaps.</div>
+          </div>
+        </div>
+        <div class="ah-diff">
+          <div class="ah-diff-num">03</div>
+          <div>
+            <div class="ah-diff-title">Zero Missed Milestones</div>
+            <div class="ah-diff-desc">47 projects. $4.2B portfolio. Nearly 20 years. Not one missed milestone. That is not a claim, it is a record.</div>
+          </div>
+        </div>
+        <div class="ah-diff">
+          <div class="ah-diff-num">04</div>
+          <div>
+            <div class="ah-diff-title">Capital Solutions via BOOT</div>
+            <div class="ah-diff-desc">BOOT structures that turn infrastructure ambition into reality without requiring upfront client capital.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:2rem">
+        <a href="#/why-us" class="ah-btn-main" data-link>Our Differentiators &rarr;</a>
+      </div>
     </div>
-    <div class="simple-card-grid">
-      ${services.slice(0,3).map(s => `
-      <div class="simple-card">
-        <img class="simple-card-img" src="${s.img}" alt="${s.title}" loading="lazy">
-        <div class="mono-label">${s.abbr}</div>
-        <div class="simple-card-title">${s.title}</div>
-        <div class="simple-card-desc">${s.desc}</div>
-      </div>`).join("")}
+
+    <div class="ah-proof-right">
+      <div class="ah-project-label">Featured Project</div>
+      <div class="ah-project-card">
+        <div class="ah-proj-name">Kano Industrial Power Plant</div>
+        <div class="ah-proj-loc">&#9670; &nbsp;Kano, Nigeria &nbsp;&bull;&nbsp; EPC</div>
+        <div class="ah-proj-desc">Design, procurement and construction of a 120MW combined-cycle gas power plant serving Kano State&rsquo;s industrial sector. Delivered 4 months ahead of schedule with zero lost-time incidents.</div>
+        <div class="ah-proj-specs">
+          <div class="ah-proj-spec">
+            <div class="ah-proj-spec-label">Capacity</div>
+            <div class="ah-proj-spec-val">120 MW</div>
+          </div>
+          <div class="ah-proj-spec">
+            <div class="ah-proj-spec-label">Value</div>
+            <div class="ah-proj-spec-val">$340M</div>
+          </div>
+          <div class="ah-proj-spec">
+            <div class="ah-proj-spec-label">Client</div>
+            <div class="ah-proj-spec-val">Kano State Govt</div>
+          </div>
+          <div class="ah-proj-spec">
+            <div class="ah-proj-spec-label">Delivery</div>
+            <div class="ah-proj-spec-val">4 months early</div>
+          </div>
+        </div>
+        <a href="#/projects" class="ah-proj-link" data-link>View all projects &rarr;</a>
+      </div>
     </div>
   </section>
 
-  <section class="simple-cta">
-    <div class="simple-cta-inner">
-      <h2 class="section-title">Have a project?</h2>
-      <p>Share your requirements and we will outline the fastest path to delivery.</p>
+  <!-- CTA -->
+  <section class="ah-cta">
+    <div class="ah-cta-left">
+      <h2 class="ah-cta-heading">Have infrastructure to build?</h2>
+      <p class="ah-cta-sub">Tell us what you need to deliver. We&rsquo;ll tell you how we can make it happen, on time, on budget, on the continent.</p>
     </div>
-    <a href="#/contact" class="btn-primary" data-link>Start a Conversation</a>
+    <div class="ah-cta-actions">
+      <a href="#/contact" class="ah-btn-main" data-link>Start a Conversation</a>
+      <a href="#/projects" class="ah-btn-ghost" data-link>See the Work</a>
+    </div>
   </section>
   `;
 }
-
 function aboutPage() {
   const leaders = [
     { name:'Chukwuemeka Obi', role:'CEO & Founder', bio:'Former MD at Julius Berger Nigeria. Founded ATLAS in 2005 with a conviction that Africa needed a home-grown infrastructure champion.', img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80' },
@@ -897,6 +1388,7 @@ window.addEventListener('hashchange', () => {
 });
 // Also on first load
 setTimeout(initScrollAnimations, 120);
+
 
 
 
