@@ -226,6 +226,9 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .landing-gallery-grid{grid-template-columns:1fr}
   .gallery-card{min-height:200px}
   .gallery-card.feature{grid-column:span 1;min-height:220px}
+
+  .custom-marker{border-width:2.5px;box-shadow:0 0 0 2px rgba(14,165,233,0.18)}
+  .custom-marker.pipeline-m{background:rgba(100,116,139,0.35)}
 }
 @media(max-width:600px){
   .simple-stats{grid-template-columns:1fr}
@@ -613,19 +616,21 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .service-full-item { grid-template-columns: 40px 1fr; gap: 1.25rem; }
   .sfi-visual { display: none; }
 
-  /* MAP — stack sidebar above map, fix blank space */
+  /* MAP — stack map above sidebar */
   .map-page {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 60vh auto;
     height: auto;
     min-height: 100svh;
   }
   .map-sidebar {
+    order: 2;
     max-height: none;
     border-right: none;
     border-bottom: 1px solid rgba(14,165,233,0.12);
   }
   .map-container {
+    order: 1;
     height: 60vh;
     min-height: 300px;
   }
@@ -701,6 +706,7 @@ footer{background:var(--navy-2);border-top:1px solid rgba(14,165,233,0.12);paddi
   .page-banner h1 { font-size: clamp(2rem, 10vw, 3rem); }
   .map-container { height: 55vh; }
   .map-sidebar { max-height: none; }
+  .map-page { grid-template-rows: 55vh auto; }
   .section-pad-lg { padding: 2.5rem 1.25rem; }
   .solution-media { min-height: 200px; }
   .post-banner { height: 260px; }

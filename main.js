@@ -1,4 +1,4 @@
-/* ── HAMBURGER MENU ────────────────────────────────────────── */
+﻿/* ── HAMBURGER MENU ────────────────────────────────────────── */
 (function() {
   function initHam() {
     var btn = document.getElementById('navHam');
@@ -54,34 +54,34 @@
 // ── DATA ──────────────────────────────────────────────────────────────────
 const projects = [
   { id:'kano-epc', title:'Kano Industrial Power Plant', loc:'Kano, Nigeria', lat:12.0022, lng:8.5919, service:'EPC', status:'complete', capacity:'120 MW', value:'$340M', client:'Kano State Govt', year:'2021', tags:['EPC','Gas','Industrial'], desc:'Design, procurement and construction of a 120 MW combined-cycle gas power plant serving Kano State\'s industrial sector. Delivered 4 months ahead of schedule with zero LTIs.' },
-  { id:'lagos-oam', title:'Lagos Grid Stabilisation', loc:'Lagos, Nigeria', lat:6.5244, lng:3.3792, service:'O&M', status:'active', capacity:'85 MW', value:'$22M/yr', client:'TCN', year:'2019–Present', tags:['O&M','Grid','Transmission'], desc:'Ongoing operations and maintenance contract for six 132/33kV substations across the Lagos metropolitan grid. Maintained 99.2% uptime over 5 years.' },
+  { id:'lagos-oam', title:'Lagos Grid Stabilisation', loc:'Lagos, Nigeria', lat:6.5244, lng:3.3792, service:'O&M', status:'active', capacity:'85 MW', value:'$22M/yr', client:'TCN', year:'2019â€“Present', tags:['O&M','Grid','Transmission'], desc:'Ongoing operations and maintenance contract for six 132/33kV substations across the Lagos metropolitan grid. Maintained 99.2% uptime over 5 years.' },
   { id:'abuja-boot', title:'Abuja Solar Hybrid BOOT', loc:'Abuja, Nigeria', lat:9.0765, lng:7.3986, service:'BOOT', status:'active', capacity:'45 MW', value:'$180M', client:'AEDC', year:'2022', tags:['BOOT','Solar','Hybrid'], desc:'Build, Own, Operate and Transfer of a 45 MW solar-diesel hybrid plant under a 25-year concession agreement with Abuja Electricity Distribution Company.' },
   { id:'ph-energy', title:'Port Harcourt Captive Power', loc:'Port Harcourt, Nigeria', lat:4.8156, lng:7.0498, service:'Energy', status:'active', capacity:'60 MW', value:'$210M', client:'Shell Nigeria', year:'2020', tags:['Captive','Gas','Energy'], desc:'Bespoke captive power solution for Shell\'s Port Harcourt facility, comprising two 30 MW gas gensets with 72-hour fuel storage and automated load management.' },
   { id:'ghana-epc', title:'Accra West Substation', loc:'Accra, Ghana', lat:5.6037, lng:-0.1870, service:'EPC', status:'complete', capacity:'330/161 kV', value:'$95M', client:'GRIDCo', year:'2022', tags:['EPC','Transmission','Substation'], desc:'Full EPC of a 330/161 kV bulk supply substation including civil works, equipment supply, HV testing and SCADA commissioning.' },
   { id:'kenya-consult', title:'East Africa Grid Study', loc:'Nairobi, Kenya', lat:-1.2921, lng:36.8219, service:'Consulting', status:'complete', capacity:'N/A', value:'$8M', client:'AfDB', year:'2023', tags:['Consulting','Advisory','Master Plan'], desc:'Comprehensive 18-month grid expansion study for the African Development Bank covering Kenya, Uganda and Tanzania transmission infrastructure needs to 2040.' },
   { id:'kaduna-boot', title:'Kaduna Mini-Grid Portfolio', loc:'Kaduna, Nigeria', lat:10.5264, lng:7.4379, service:'BOOT', status:'pipeline', capacity:'12 MW', value:'$45M', client:'REA Nigeria', year:'2025', tags:['BOOT','Mini-Grid','Rural'], desc:'Portfolio of 8 solar mini-grids serving rural communities in Kaduna State under Nigeria\'s Rural Electrification Agency framework. Financial close expected Q1 2025.' },
   { id:'senegal-epc', title:'Dakar LNG Terminal', loc:'Dakar, Senegal', lat:14.7167, lng:-17.4677, service:'EPC', status:'active', capacity:'500 MMSCFD', value:'$620M', client:'Petrosen', year:'2023', tags:['EPC','LNG','Upstream'], desc:'Engineering, procurement and construction of Senegal\'s first LNG receiving terminal, enabling gas-to-power infrastructure for the greater Dakar region.' },
-  { id:'tanzania-oam', title:'Dar es Salaam Distribution', loc:'Dar es Salaam, Tanzania', lat:-6.7924, lng:39.2083, service:'O&M', status:'active', capacity:'Multi-site', value:'$15M/yr', client:'TANESCO', year:'2022–Present', tags:['O&M','Distribution','HV'], desc:'O&M framework contract for TANESCO covering 12 primary substations and 340km of 33kV distribution network in the Dar es Salaam urban area.' },
-  { id:'abidjan-energy', title:'Abidjan Gas-to-Power', loc:'Abidjan, Côte d\'Ivoire', lat:5.3600, lng:-4.0083, service:'Energy', status:'pipeline', capacity:'200 MW', value:'$580M', client:'CIE', year:'2026', tags:['Gas','Energy','IPP'], desc:'Independent Power Project supplying 200 MW to the Ivorian national grid under a 20-year PPA. Currently in final ESIA and lender due diligence phase.' },
+  { id:'tanzania-oam', title:'Dar es Salaam Distribution', loc:'Dar es Salaam, Tanzania', lat:-6.7924, lng:39.2083, service:'O&M', status:'active', capacity:'Multi-site', value:'$15M/yr', client:'TANESCO', year:'2022â€“Present', tags:['O&M','Distribution','HV'], desc:'O&M framework contract for TANESCO covering 12 primary substations and 340km of 33kV distribution network in the Dar es Salaam urban area.' },
+  { id:'abidjan-energy', title:'Abidjan Gas-to-Power', loc:'Abidjan, CÃ´te d\'Ivoire', lat:5.3600, lng:-4.0083, service:'Energy', status:'pipeline', capacity:'200 MW', value:'$580M', client:'CIE', year:'2026', tags:['Gas','Energy','IPP'], desc:'Independent Power Project supplying 200 MW to the Ivorian national grid under a 20-year PPA. Currently in final ESIA and lender due diligence phase.' },
 ];
 
 const services = [
-  { code:'SVC-01', title:'Engineering, Procurement & Construction', abbr:'EPC', desc:'Full-cycle EPC delivery for power generation, transmission and distribution infrastructure. From FEED through commissioning, ATLAS delivers on time and on budget — backed by a 100% project completion record across 23 countries.', tags:['Power Generation','Transmission','Distribution','Civil Works','Commissioning'], img:'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80' },
+  { code:'SVC-01', title:'Engineering, Procurement & Construction', abbr:'EPC', desc:'Full-cycle EPC delivery for power generation, transmission and distribution infrastructure. From FEED through commissioning, ATLAS delivers on time and on budget â€” backed by a 100% project completion record across 23 countries.', tags:['Power Generation','Transmission','Distribution','Civil Works','Commissioning'], img:'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80' },
   { code:'SVC-02', title:'Operations & Maintenance', abbr:'O&M', desc:'Long-term O&M contracts for power plants, substations and network assets. Our in-country teams maintain asset availability above 98% through preventive maintenance regimes and 24/7 response capability.', tags:['Preventive Maintenance','Emergency Response','SCADA','Asset Management'], img:'Operations%20%26%20Maintenance.jpg' },
-  { code:'SVC-03', title:'Build, Own, Operate & Transfer', abbr:'BOOT', desc:'We structure and deliver BOOT and PPP arrangements for power infrastructure — mobilising private capital, managing project risk and operating assets under long-term offtake agreements before transfer to public ownership.', tags:['Project Finance','PPP','Concession','Offtake Agreements'], img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80' },
+  { code:'SVC-03', title:'Build, Own, Operate & Transfer', abbr:'BOOT', desc:'We structure and deliver BOOT and PPP arrangements for power infrastructure â€” mobilising private capital, managing project risk and operating assets under long-term offtake agreements before transfer to public ownership.', tags:['Project Finance','PPP','Concession','Offtake Agreements'], img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80' },
   { code:'SVC-04', title:'Energy Solutions', abbr:'Energy', desc:'Bespoke captive power, hybrid energy systems and distributed generation for industrial and commercial clients. We design, supply and operate systems that guarantee reliable power independent of the national grid.', tags:['Captive Power','Solar Hybrid','Gas Gensets','Battery Storage'], img:'Energy%20Solutions.jpg' },
-  { code:'SVC-05', title:'Advisory & Consulting', abbr:'Consulting', desc:'Technical, financial and regulatory advisory for energy sector stakeholders — from grid master planning and feasibility studies to transaction advisory and lender\'s engineer mandates.', tags:['Feasibility Studies','Grid Planning','Transaction Advisory','Due Diligence'], img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80' },
+  { code:'SVC-05', title:'Advisory & Consulting', abbr:'Consulting', desc:'Technical, financial and regulatory advisory for energy sector stakeholders â€” from grid master planning and feasibility studies to transaction advisory and lender\'s engineer mandates.', tags:['Feasibility Studies','Grid Planning','Transaction Advisory','Due Diligence'], img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80' },
 ];
 
 const news = [
-  { id:'kano-completion', cat:'Project Update', title:'ATLAS Completes 120 MW Kano Power Plant Ahead of Schedule', date:'Jan 2025', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80', excerpt:'The Kano Industrial Power Plant has been successfully commissioned four months ahead of contractual deadline, delivering reliable electricity to over 1.2 million residents.', content:`<p>ATLAS Infrastructure Group is pleased to announce the successful commissioning of the 120 MW Kano Industrial Power Plant, marking a significant milestone in Nigeria\'s ongoing power sector reform. The project, executed under a full EPC contract with Kano State Government, was delivered four months ahead of the contractual completion date and within the approved project budget.</p><p>The plant — a combined-cycle gas facility combining two Frame 6 gas turbines with a single steam recovery unit — will supply power to Kano\'s industrial corridor, where acute electricity shortfalls have constrained manufacturing output for over a decade.</p><h2>Technical scope</h2><p>ATLAS managed all aspects of the project from detailed engineering through to commissioning and performance testing. Procurement was coordinated from our Lagos and Dubai supply chain hubs, with over 60% of construction labour and 40% of materials sourced in-country — creating more than 2,400 direct and indirect jobs during the construction phase.</p><blockquote><p>This project demonstrates what is possible when public clients and private contractors share a genuine commitment to delivery.</p></blockquote><p>The facility includes a 132kV switchyard and 18km transmission line connecting the plant to the Kano metropolitan grid. SCADA systems are integrated with the TCN national control centre, enabling real-time monitoring and dispatch optimisation.</p>` },
-  { id:'dakar-lng', cat:'Project Award', title:'ATLAS Awarded $620M Dakar LNG Terminal EPC Contract', date:'Nov 2024', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80', excerpt:'Senegal\'s state oil company Petrosen has selected ATLAS to lead engineering, procurement and construction of the country\'s first LNG receiving terminal.', content:`<p>ATLAS Infrastructure Group has been awarded the engineering, procurement and construction contract for Senegal's first LNG receiving terminal by state energy company Petrosen. The contract, valued at $620 million, positions ATLAS as the lead constructor for one of West Africa's most significant energy infrastructure projects of the decade.</p><p>The terminal will receive LNG vessels of up to 174,000 cubic metres, with regasification capacity of 500 MMSCFD — sufficient to supply gas to 2,500 MW of new power generation capacity currently under development by the Government of Senegal.</p><h2>Strategic importance</h2><p>Senegal's offshore gas discoveries at Sangomar and Greater Tortue have catalysed a major restructuring of the country's energy sector. The LNG terminal is the critical enabling infrastructure — without it, neither domestic gas monetisation nor the planned gas-to-power programme can proceed.</p><blockquote><p>Winning this mandate confirms ATLAS as the leading EPC contractor for complex energy infrastructure across West Africa.</p></blockquote>` },
-  { id:'africa-grid', cat:'Insight', title:'Why Sub-Saharan Africa Needs a New Approach to Grid Investment', date:'Oct 2024', author:'Dr. Emeka Nwosu, Head of Advisory', img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80', excerpt:'Traditional grid expansion models are failing African utilities. A distributed, data-driven approach to transmission planning is the only viable path to universal access by 2040.', content:`<p>Sub-Saharan Africa has more than 600 million people without access to reliable electricity. The gap between installed generation capacity and actual delivered power — the so-called "dark megawatt" problem — is not primarily a generation problem. It is a transmission and distribution problem, compounded by chronically underinvested grid infrastructure and utilities operating without adequate planning tools.</p><p>The traditional response to this challenge — expanding the high-voltage backbone grid radially from central generating stations — made economic sense in the 20th century. It no longer does. The declining cost of distributed generation, battery storage and smart metering technology has fundamentally altered the economics of electrification. A village 200km from the nearest transmission line is now cheaper to electrify with a solar-battery mini-grid than with a grid extension project that will take seven years to finance and build.</p><h2>What the data tells us</h2><p>ATLAS's advisory team has modelled electrification pathways for 14 African countries over the past four years. In every case, the least-cost scenario for universal access by 2040 involves a hybrid approach: reinforcing the transmission backbone in high-density corridors, while deploying mini-grids and standalone systems in dispersed rural areas.</p><blockquote><p>The technology question is settled. The financing and policy question is not — and that is where the work needs to happen.</p></blockquote>` },
-  { id:'abuja-solar', cat:'Project Update', title:'Abuja Solar Hybrid Achieves First Year Performance Targets', date:'Sep 2024', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=900&q=80', excerpt:'The 45 MW Abuja Solar Hybrid BOOT project has exceeded first-year generation targets by 8%, with diesel displacement rates outperforming the base case by a significant margin.', content:`<p>The 45 MW Abuja Solar Hybrid BOOT facility has completed its first full year of commercial operation, reporting generation performance that exceeds contractual targets by 8% and diesel displacement rates that outperform the agreed base case by 23 percentage points.</p><p>The facility — structured under a 25-year Build, Own, Operate and Transfer agreement with Abuja Electricity Distribution Company — combines 35 MW of ground-mounted solar PV with a 10 MW battery energy storage system and a 10 MW diesel backup capability. Intelligent dispatch logic developed by ATLAS's energy management team optimises the generation mix in real-time, minimising diesel consumption while maintaining grid stability during periods of low solar irradiance.</p>` },
-  { id:'kaduna-mini-grid', cat:'Project Award', title:'ATLAS Secures Kaduna Mini-Grid Framework with REA', date:'Aug 2024', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1509390145686-b8c5aed7df14?w=900&q=80', excerpt:'Nigeria\'s Rural Electrification Agency has selected ATLAS to develop, finance and operate a portfolio of solar mini-grids serving eight communities in Kaduna State.', content:`<p>ATLAS Infrastructure Group has entered into a Framework Agreement with Nigeria's Rural Electrification Agency for the development, financing, construction and operation of a portfolio of solar mini-grids across eight rural communities in Kaduna State.</p><p>The portfolio — with total installed capacity of 12 MW across sites ranging from 800 kW to 2.5 MW — will connect approximately 45,000 households and 2,800 small businesses that currently have no access to grid electricity. Financial close is targeted for Q1 2025, with construction commencement scheduled for Q2 2025.</p>` },
+  { id:'kano-completion', cat:'Project Update', title:'ATLAS Completes 120 MW Kano Power Plant Ahead of Schedule', date:'Jan 2025', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80', excerpt:'The Kano Industrial Power Plant has been successfully commissioned four months ahead of contractual deadline, delivering reliable electricity to over 1.2 million residents.', content:`<p>ATLAS Infrastructure Group is pleased to announce the successful commissioning of the 120 MW Kano Industrial Power Plant, marking a significant milestone in Nigeria\'s ongoing power sector reform. The project, executed under a full EPC contract with Kano State Government, was delivered four months ahead of the contractual completion date and within the approved project budget.</p><p>The plant â€” a combined-cycle gas facility combining two Frame 6 gas turbines with a single steam recovery unit â€” will supply power to Kano\'s industrial corridor, where acute electricity shortfalls have constrained manufacturing output for over a decade.</p><h2>Technical scope</h2><p>ATLAS managed all aspects of the project from detailed engineering through to commissioning and performance testing. Procurement was coordinated from our Lagos and Dubai supply chain hubs, with over 60% of construction labour and 40% of materials sourced in-country â€” creating more than 2,400 direct and indirect jobs during the construction phase.</p><blockquote><p>This project demonstrates what is possible when public clients and private contractors share a genuine commitment to delivery.</p></blockquote><p>The facility includes a 132kV switchyard and 18km transmission line connecting the plant to the Kano metropolitan grid. SCADA systems are integrated with the TCN national control centre, enabling real-time monitoring and dispatch optimisation.</p>` },
+  { id:'dakar-lng', cat:'Project Award', title:'ATLAS Awarded $620M Dakar LNG Terminal EPC Contract', date:'Nov 2024', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80', excerpt:'Senegal\'s state oil company Petrosen has selected ATLAS to lead engineering, procurement and construction of the country\'s first LNG receiving terminal.', content:`<p>ATLAS Infrastructure Group has been awarded the engineering, procurement and construction contract for Senegal's first LNG receiving terminal by state energy company Petrosen. The contract, valued at $620 million, positions ATLAS as the lead constructor for one of West Africa's most significant energy infrastructure projects of the decade.</p><p>The terminal will receive LNG vessels of up to 174,000 cubic metres, with regasification capacity of 500 MMSCFD â€” sufficient to supply gas to 2,500 MW of new power generation capacity currently under development by the Government of Senegal.</p><h2>Strategic importance</h2><p>Senegal's offshore gas discoveries at Sangomar and Greater Tortue have catalysed a major restructuring of the country's energy sector. The LNG terminal is the critical enabling infrastructure â€” without it, neither domestic gas monetisation nor the planned gas-to-power programme can proceed.</p><blockquote><p>Winning this mandate confirms ATLAS as the leading EPC contractor for complex energy infrastructure across West Africa.</p></blockquote>` },
+  { id:'africa-grid', cat:'Insight', title:'Why Sub-Saharan Africa Needs a New Approach to Grid Investment', date:'Oct 2024', author:'Dr. Emeka Nwosu, Head of Advisory', img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80', excerpt:'Traditional grid expansion models are failing African utilities. A distributed, data-driven approach to transmission planning is the only viable path to universal access by 2040.', content:`<p>Sub-Saharan Africa has more than 600 million people without access to reliable electricity. The gap between installed generation capacity and actual delivered power â€” the so-called "dark megawatt" problem â€” is not primarily a generation problem. It is a transmission and distribution problem, compounded by chronically underinvested grid infrastructure and utilities operating without adequate planning tools.</p><p>The traditional response to this challenge â€” expanding the high-voltage backbone grid radially from central generating stations â€” made economic sense in the 20th century. It no longer does. The declining cost of distributed generation, battery storage and smart metering technology has fundamentally altered the economics of electrification. A village 200km from the nearest transmission line is now cheaper to electrify with a solar-battery mini-grid than with a grid extension project that will take seven years to finance and build.</p><h2>What the data tells us</h2><p>ATLAS's advisory team has modelled electrification pathways for 14 African countries over the past four years. In every case, the least-cost scenario for universal access by 2040 involves a hybrid approach: reinforcing the transmission backbone in high-density corridors, while deploying mini-grids and standalone systems in dispersed rural areas.</p><blockquote><p>The technology question is settled. The financing and policy question is not â€” and that is where the work needs to happen.</p></blockquote>` },
+  { id:'abuja-solar', cat:'Project Update', title:'Abuja Solar Hybrid Achieves First Year Performance Targets', date:'Sep 2024', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=900&q=80', excerpt:'The 45 MW Abuja Solar Hybrid BOOT project has exceeded first-year generation targets by 8%, with diesel displacement rates outperforming the base case by a significant margin.', content:`<p>The 45 MW Abuja Solar Hybrid BOOT facility has completed its first full year of commercial operation, reporting generation performance that exceeds contractual targets by 8% and diesel displacement rates that outperform the agreed base case by 23 percentage points.</p><p>The facility â€” structured under a 25-year Build, Own, Operate and Transfer agreement with Abuja Electricity Distribution Company â€” combines 35 MW of ground-mounted solar PV with a 10 MW battery energy storage system and a 10 MW diesel backup capability. Intelligent dispatch logic developed by ATLAS's energy management team optimises the generation mix in real-time, minimising diesel consumption while maintaining grid stability during periods of low solar irradiance.</p>` },
+  { id:'kaduna-mini-grid', cat:'Project Award', title:'ATLAS Secures Kaduna Mini-Grid Framework with REA', date:'Aug 2024', author:'ATLAS Communications', img:'https://images.unsplash.com/photo-1509390145686-b8c5aed7df14?w=900&q=80', excerpt:'Nigeria\'s Rural Electrification Agency has selected ATLAS to develop, finance and operate a portfolio of solar mini-grids serving eight communities in Kaduna State.', content:`<p>ATLAS Infrastructure Group has entered into a Framework Agreement with Nigeria's Rural Electrification Agency for the development, financing, construction and operation of a portfolio of solar mini-grids across eight rural communities in Kaduna State.</p><p>The portfolio â€” with total installed capacity of 12 MW across sites ranging from 800 kW to 2.5 MW â€” will connect approximately 45,000 households and 2,800 small businesses that currently have no access to grid electricity. Financial close is targeted for Q1 2025, with construction commencement scheduled for Q2 2025.</p>` },
 ];
 
-// ── ROUTER ─────────────────────────────────────────────────────────────────
+// â”€â”€ ROUTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let mapInstance = null;
 
 function router() {
@@ -144,7 +144,7 @@ function bindEvents() {
   });
 }
 
-// ── SHARED ─────────────────────────────────────────────────────────────────
+// â”€â”€ SHARED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const tickerHTML = () => `<div class="ticker"><div class="ticker-track">${
   ['EPC Delivery','O&M Excellence','BOOT Structuring','Energy Solutions','Advisory Services','23 Countries','$4.2B Portfolio','1,200+ MW Delivered','EPC Delivery','O&M Excellence','BOOT Structuring','Energy Solutions','Advisory Services','23 Countries','$4.2B Portfolio','1,200+ MW Delivered']
   .map(t=>`<span class="ticker-item"><span class="sep"></span>${t}</span>`).join('')
@@ -161,8 +161,8 @@ const footerHTML = () => `<footer>
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">ATLAS Infrastructure</div>
-      <div class="footer-brand-sub">Group · Est. 2005</div>
-      <p class="footer-desc">Africa's leading independent infrastructure contractor — delivering power, energy and engineering solutions across Sub-Saharan Africa and beyond.</p>
+      <div class="footer-brand-sub">Group Â· Est. 2005</div>
+      <p class="footer-desc">Africa's leading independent infrastructure contractor â€” delivering power, energy and engineering solutions across Sub-Saharan Africa and beyond.</p>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
@@ -195,12 +195,12 @@ const footerHTML = () => `<footer>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 ATLAS Infrastructure Group. All rights reserved.</span>
-    <span class="footer-coords">6.5244° N, 3.3792° E // Lagos HQ</span>
+    <span class="footer-copy">Â© 2025 ATLAS Infrastructure Group. All rights reserved.</span>
+    <span class="footer-coords">6.5244Â° N, 3.3792Â° E // Lagos HQ</span>
   </div>
 </footer>`;
 
-// ── PAGES ──────────────────────────────────────────────────────────────────
+// â”€â”€ PAGES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function homePage() {
   const heroImage = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80';
@@ -314,8 +314,8 @@ function aboutPage() {
     <div class="about-text">
       <div class="tag" style="margin-bottom:1.5rem">Our Story</div>
       <h2>Twenty years of<br>building Africa.</h2>
-      <p>CEO Chukwuemeka Obi founded ATLAS after fifteen years in the Nigerian construction industry, watching international contractors extract value while building limited local capacity. His vision was different: a contractor that would be genuinely African in ownership, management, workforce and supply chain — while meeting or exceeding international standards for quality, safety and delivery.</p>
-      <p>That vision has produced a business with $4.2B in completed and active projects, operations in 23 countries, and a workforce of over 8,500 people — more than 85% of them African nationals. We have never missed a completion milestone. We have never had a Lost Time Injury in five years.</p>
+      <p>CEO Chukwuemeka Obi founded ATLAS after fifteen years in the Nigerian construction industry, watching international contractors extract value while building limited local capacity. His vision was different: a contractor that would be genuinely African in ownership, management, workforce and supply chain â€” while meeting or exceeding international standards for quality, safety and delivery.</p>
+      <p>That vision has produced a business with $4.2B in completed and active projects, operations in 23 countries, and a workforce of over 8,500 people â€” more than 85% of them African nationals. We have never missed a completion milestone. We have never had a Lost Time Injury in five years.</p>
       <a href="#/why-us" class="btn-primary" data-link style="margin-top:1rem">Why Choose ATLAS</a>
     </div>
   </div>
@@ -323,7 +323,7 @@ function aboutPage() {
     <div class="tag" style="margin-bottom:1.5rem">Our Values</div>
     <h2 class="section-title" style="margin-bottom:0">What we<br><em>stand for.</em></h2>
     <div class="values-grid-full">
-      ${[['01','Delivery First','We judge ourselves — and each other — by results. Promises are a starting point. Delivery is the only measure that matters.'],['02','African Ownership','We believe infrastructure built by Africans, for Africans, transfers skills, builds institutions and creates lasting value in a way that imported solutions cannot.'],['03','Safety Without Compromise','Our zero-LTI record is the result of genuine commitment, not compliance. Every worker goes home safely. This is not negotiable.'],['04','Technical Excellence','We invest in our people, our systems and our equipment because the quality of our work is the only sustainable competitive advantage.'],['05','Long-term Partnership','Our best client relationships span decades. We invest in understanding our clients\' businesses because their success is our success.'],['06','Financial Integrity','We structure transactions honestly, manage costs transparently and deliver what we price. No surprises.']].map(([n,t,d])=>`
+      ${[['01','Delivery First','We judge ourselves â€” and each other â€” by results. Promises are a starting point. Delivery is the only measure that matters.'],['02','African Ownership','We believe infrastructure built by Africans, for Africans, transfers skills, builds institutions and creates lasting value in a way that imported solutions cannot.'],['03','Safety Without Compromise','Our zero-LTI record is the result of genuine commitment, not compliance. Every worker goes home safely. This is not negotiable.'],['04','Technical Excellence','We invest in our people, our systems and our equipment because the quality of our work is the only sustainable competitive advantage.'],['05','Long-term Partnership','Our best client relationships span decades. We invest in understanding our clients\' businesses because their success is our success.'],['06','Financial Integrity','We structure transactions honestly, manage costs transparently and deliver what we price. No surprises.']].map(([n,t,d])=>`
       <div class="value-card-full"><div class="vcf-num">// ${n}</div><div class="vcf-title">${t}</div><div class="vcf-desc">${d}</div></div>`).join('')}
     </div>
   </div>
@@ -353,7 +353,7 @@ function servicesPage() {
   <div class="page-banner" data-bg="SVC">
     <div class="tag">Our Capabilities</div>
     <h1 class="display-title">Five services.<br><em>End to end.</em></h1>
-    <p>From initial feasibility through to multi-decade operations, ATLAS provides every capability a major infrastructure project requires — under one roof, with single-point accountability.</p>
+    <p>From initial feasibility through to multi-decade operations, ATLAS provides every capability a major infrastructure project requires â€” under one roof, with single-point accountability.</p>
   </div>
   <div class="services-full">
     ${services.map((s,i)=>`
@@ -374,15 +374,15 @@ function servicesPage() {
 
 function solutionsPage() {
   const solutions = [
-    { title:'Captive Power', sub:'Industrial & Commercial', desc:'Guaranteed power for industrial facilities, manufacturing plants and commercial campuses — independent of the national grid. We design, build, finance and operate systems from 1 MW to 200 MW, integrating gas, diesel, solar, battery and grid connection as the economics dictate.', metrics:[['1 MW–200 MW','Capacity range'],['<72 hrs','Emergency deployment'],['99.5%','Uptime guarantee'],['25 yrs','Maximum contract term']], img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80' },
-    { title:'Solar Hybrid', sub:'Clean & Reliable', desc:'Solar PV with battery storage and thermal backup — optimised by intelligent energy management systems to minimise fuel costs while guaranteeing supply continuity. Our systems reduce diesel consumption by 60–80% versus standalone genset solutions.', metrics:[['60-80%','Diesel reduction'],['25 yrs','Panel warranty'],['4 hr','Battery autonomy'],['<12 mo','Typical build time']], img:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=900&q=80' },
-    { title:'Grid Reinforcement', sub:'Transmission & Distribution', desc:'Turnkey upgrades to transmission and distribution infrastructure — from 11 kV distribution rehabilitation to 330 kV backbone reinforcement. We manage civil works, equipment supply, protection and control systems, and grid code compliance testing.', metrics:[['11–330 kV','Voltage range'],['340 km','Largest network O&M'],['48 hr','Typical fault response'],['100%','Grid code compliance']], img:'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900&q=80' },
+    { title:'Captive Power', sub:'Industrial & Commercial', desc:'Guaranteed power for industrial facilities, manufacturing plants and commercial campuses â€” independent of the national grid. We design, build, finance and operate systems from 1 MW to 200 MW, integrating gas, diesel, solar, battery and grid connection as the economics dictate.', metrics:[['1 MWâ€“200 MW','Capacity range'],['<72 hrs','Emergency deployment'],['99.5%','Uptime guarantee'],['25 yrs','Maximum contract term']], img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80' },
+    { title:'Solar Hybrid', sub:'Clean & Reliable', desc:'Solar PV with battery storage and thermal backup â€” optimised by intelligent energy management systems to minimise fuel costs while guaranteeing supply continuity. Our systems reduce diesel consumption by 60â€“80% versus standalone genset solutions.', metrics:[['60-80%','Diesel reduction'],['25 yrs','Panel warranty'],['4 hr','Battery autonomy'],['<12 mo','Typical build time']], img:'Solar%20Hybrid%20Deployment.jpg' },
+    { title:'Grid Reinforcement', sub:'Transmission & Distribution', desc:'Turnkey upgrades to transmission and distribution infrastructure â€” from 11 kV distribution rehabilitation to 330 kV backbone reinforcement. We manage civil works, equipment supply, protection and control systems, and grid code compliance testing.', metrics:[['11â€“330 kV','Voltage range'],['340 km','Largest network O&M'],['48 hr','Typical fault response'],['100%','Grid code compliance']], img:'download%20(2).jpg' },
   ];
   return `
   <div class="page-banner" data-bg="SOL">
     <div class="tag">Our Solutions</div>
     <h1 class="display-title">Power when<br>it matters. <em>Always.</em></h1>
-    <p>Every energy challenge is different. ATLAS configures its capabilities around your specific requirement — whether that's guaranteed captive power, a clean energy transition, or grid infrastructure that actually works.</p>
+    <p>Every energy challenge is different. ATLAS configures its capabilities around your specific requirement â€” whether that's guaranteed captive power, a clean energy transition, or grid infrastructure that actually works.</p>
   </div>
   ${solutions.map((sol,i)=>`
   <div class="solution-band${i%2===0?'':' reverse'}">
@@ -410,7 +410,7 @@ function projectsPage() {
       <div class="mpi-title">${p.title}</div>
       <span class="mpi-status ${p.status}">${p.status.toUpperCase()}</span>
     </div>
-    <div class="mpi-loc">📍 ${p.loc}</div>
+    <div class="mpi-loc">ðŸ“ ${p.loc}</div>
     <div class="mpi-tags">${p.tags.map(t=>`<span class="mpi-tag">${t}</span>`).join('')}</div>
   </div>`).join('');
 
@@ -419,7 +419,7 @@ function projectsPage() {
     <div class="map-sidebar">
       <div class="map-sidebar-header">
         <div class="map-sidebar-title">Project Footprint</div>
-        <div class="map-sidebar-sub">// ${projects.length} projects · 10 countries</div>
+        <div class="map-sidebar-sub">// ${projects.length} projects Â· 10 countries</div>
       </div>
       <div class="map-filters">
         <button class="map-filter active" data-filter="all">All</button>
@@ -434,13 +434,13 @@ function projectsPage() {
     <div class="map-container">
       <div id="leaflet-map"></div>
       <div class="map-detail-panel" id="detail-panel">
-        <button class="mdp-close" onclick="closePanel()">✕</button>
+        <button class="mdp-close" onclick="closePanel()">âœ•</button>
         <div id="detail-content"></div>
         <a href="#/contact" class="btn-primary" data-link style="width:100%;justify-content:center;margin-top:0.5rem">Enquire About This Project</a>
       </div>
       <div class="map-coords-bar">
         <span id="map-coords">// Move cursor over map</span>
-        <span>ATLAS INFRASTRUCTURE · PROJECT FOOTPRINT</span>
+        <span>ATLAS INFRASTRUCTURE Â· PROJECT FOOTPRINT</span>
       </div>
     </div>
   </div>`;
@@ -452,7 +452,7 @@ function initMap() {
     if (!mapEl) return;
     const isMobile = window.innerWidth < 720;
     const baseZoom = isMobile ? 4.5 : 4;
-    const markerSize = isMobile ? 10 : 14;
+    const markerSize = isMobile ? 12 : 14;
     const map = L.map('leaflet-map', {
       center: [8, 15],
       zoom: baseZoom,
@@ -464,13 +464,13 @@ function initMap() {
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
-      attribution: '© OpenStreetMap © CARTO'
+      attribution: 'Â© OpenStreetMap Â© CARTO'
     }).addTo(map);
 
     // Coords bar
     map.on('mousemove', e => {
       const el = document.getElementById('map-coords');
-      if (el) el.textContent = `// ${e.latlng.lat.toFixed(4)}° N, ${e.latlng.lng.toFixed(4)}° E`;
+      if (el) el.textContent = `// ${e.latlng.lat.toFixed(4)}Â° N, ${e.latlng.lng.toFixed(4)}Â° E`;
     });
 
     // Markers
@@ -506,9 +506,9 @@ window.selectProject = function(id, mapRef) {
   if (!panel || !content) return;
 
   content.innerHTML = `
-    <div class="mdp-tag">${p.service} · ${p.tags.join(' · ')}</div>
+    <div class="mdp-tag">${p.service} Â· ${p.tags.join(' Â· ')}</div>
     <div class="mdp-title">${p.title}</div>
-    <div class="mdp-loc">📍 ${p.loc}</div>
+    <div class="mdp-loc">ðŸ“ ${p.loc}</div>
     <div class="mdp-desc">${p.desc}</div>
     <div class="mdp-specs">
       <div><div class="mdp-spec-label">Capacity</div><div class="mdp-spec-val">${p.capacity}</div></div>
@@ -571,7 +571,7 @@ function whyUsPage() {
     <div class="tag" style="margin-bottom:1.5rem">Technology & Process</div>
     <h2 class="section-title" style="margin-bottom:0">Process<br><em>efficiency.</em></h2>
     <div class="tech-grid">
-      ${[['AI','AI-Assisted Planning','Machine learning models optimise project scheduling, resource allocation and risk identification — reducing programme overruns by 35% versus industry average.'],['SCADA','Real-Time SCADA','Proprietary SCADA platform monitors all operated assets from our Lagos control centre, enabling predictive maintenance and same-day fault resolution.'],['HSE','Digital HSE System','Every worker, every site, every day. Our digital safety management system tracks exposure hours, near-misses and corrective actions in real time.'],['BIM','BIM & Digital Twin','Full Building Information Modelling for all EPC projects. Digital twins maintained for all operated assets, enabling simulation-based maintenance planning.'],['ERP','Integrated ERP','Single enterprise platform covering procurement, contracts, finance and HR — eliminating data silos and enabling real-time project performance reporting.'],['QA','ISO-Certified QA','ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 certified. Independent third-party audits conducted annually at every operating location.']].map(([code,t,d])=>`
+      ${[['AI','AI-Assisted Planning','Machine learning models optimise project scheduling, resource allocation and risk identification â€” reducing programme overruns by 35% versus industry average.'],['SCADA','Real-Time SCADA','Proprietary SCADA platform monitors all operated assets from our Lagos control centre, enabling predictive maintenance and same-day fault resolution.'],['HSE','Digital HSE System','Every worker, every site, every day. Our digital safety management system tracks exposure hours, near-misses and corrective actions in real time.'],['BIM','BIM & Digital Twin','Full Building Information Modelling for all EPC projects. Digital twins maintained for all operated assets, enabling simulation-based maintenance planning.'],['ERP','Integrated ERP','Single enterprise platform covering procurement, contracts, finance and HR â€” eliminating data silos and enabling real-time project performance reporting.'],['QA','ISO-Certified QA','ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 certified. Independent third-party audits conducted annually at every operating location.']].map(([code,t,d])=>`
       <div class="tech-card">
         <div class="tech-card-icon">${code}</div>
         <div class="tech-card-title">${t}</div>
@@ -607,7 +607,7 @@ function newsPage() {
         <div class="news-cat">${news[0].cat}</div>
         <div class="news-feat-title">${news[0].title}</div>
         <div class="news-feat-excerpt">${news[0].excerpt}</div>
-        <div class="news-feat-meta">${news[0].author} · ${news[0].date}</div>
+        <div class="news-feat-meta">${news[0].author} Â· ${news[0].date}</div>
       </div>
     </div>
     <div class="news-sidebar">
@@ -656,7 +656,7 @@ function articlePage(id) {
       <p style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-style:italic;color:var(--slate);margin-bottom:2rem;line-height:1.5">${article.excerpt}</p>
       ${article.content}
       <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(14,165,233,0.1);display:flex;gap:1rem">
-        <a href="#/news" class="btn-outline-blue" data-link>← Back to News</a>
+        <a href="#/news" class="btn-outline-blue" data-link>â† Back to News</a>
         <a href="#/contact" class="btn-primary" data-link>Discuss with Us</a>
       </div>
     </div>
@@ -685,14 +685,14 @@ function contactPage() {
   <div class="page-banner" data-bg="CONTACT">
     <div class="tag">Get in Touch</div>
     <h1 class="display-title">Let's build<br><em>together.</em></h1>
-    <p>Whether you have a project brief, a procurement requirement, or simply want to understand what ATLAS can do for you — our team is ready to respond.</p>
+    <p>Whether you have a project brief, a procurement requirement, or simply want to understand what ATLAS can do for you â€” our team is ready to respond.</p>
   </div>
   <div class="contact-layout">
     <div class="contact-info-col">
       <h2>We respond within one business day.</h2>
-      <p>Every enquiry reaches a senior member of our business development team directly. We do not use contact forms as a delay mechanism — we use them to ensure we have the right information before we call.</p>
+      <p>Every enquiry reaches a senior member of our business development team directly. We do not use contact forms as a delay mechanism â€” we use them to ensure we have the right information before we call.</p>
       <div class="contact-details-list">
-        <div class="cdl-item"><div class="cdl-label">HQ — Lagos</div><div class="cdl-val">ATLAS House, Plot 1021<br>Adeola Odeku Street, Victoria Island<br>Lagos, Nigeria<br>+234 (0) 800 285 271</div></div>
+        <div class="cdl-item"><div class="cdl-label">HQ â€” Lagos</div><div class="cdl-val">ATLAS House, Plot 1021<br>Adeola Odeku Street, Victoria Island<br>Lagos, Nigeria<br>+234 (0) 800 285 271</div></div>
         <div class="cdl-item"><div class="cdl-label">General Enquiries</div><div class="cdl-val">info@atlasinfra.com</div></div>
         <div class="cdl-item"><div class="cdl-label">New Projects</div><div class="cdl-val">projects@atlasinfra.com</div></div>
         <div class="cdl-item"><div class="cdl-label">Press & Media</div><div class="cdl-val">media@atlasinfra.com</div></div>
@@ -722,7 +722,7 @@ function contactPage() {
     <div class="tag" style="margin-bottom:1.5rem">Our Offices</div>
     <h2 class="section-title" style="margin-bottom:3rem">Present across<br><em>Africa.</em></h2>
     <div class="offices-grid">
-      ${[['Lagos','Nigeria · Principal HQ','ATLAS House, Plot 1021 Adeola Odeku Street, Victoria Island','+234 (0) 800 285 271'],['Abuja','Nigeria · Government Affairs','Suite 4, NICON Luxury Hotel Complex, Central Business District','+234 (0) 800 285 272'],['Accra','Ghana · West Africa Hub','6th Floor, Accra Financial Centre, Independence Avenue','+ 233 30 274 9100'],['Nairobi','Kenya · East Africa Hub','Upperhill, Longonot Road, Kenya Re Towers, 14th Floor','+ 254 20 386 5200'],['Dubai','UAE · Middle East & Finance','DIFC, Gate Village Building 3, Level 5','+ 971 4 305 7300'],['Dakar','Senegal · Project Office','Rue de Thiong, Plateau, Dakar, Senegal','+ 221 33 889 3800']].map(([c,s,a,p])=>`
+      ${[['Lagos','Nigeria Â· Principal HQ','ATLAS House, Plot 1021 Adeola Odeku Street, Victoria Island','+234 (0) 800 285 271'],['Abuja','Nigeria Â· Government Affairs','Suite 4, NICON Luxury Hotel Complex, Central Business District','+234 (0) 800 285 272'],['Accra','Ghana Â· West Africa Hub','6th Floor, Accra Financial Centre, Independence Avenue','+ 233 30 274 9100'],['Nairobi','Kenya Â· East Africa Hub','Upperhill, Longonot Road, Kenya Re Towers, 14th Floor','+ 254 20 386 5200'],['Dubai','UAE Â· Middle East & Finance','DIFC, Gate Village Building 3, Level 5','+ 971 4 305 7300'],['Dakar','Senegal Â· Project Office','Rue de Thiong, Plateau, Dakar, Senegal','+ 221 33 889 3800']].map(([c,s,a,p])=>`
       <div class="office-card"><div class="office-city">${c}</div><div class="office-country">${s}</div><div class="office-detail">${a}</div><div class="office-detail">${p}</div></div>`).join('')}
     </div>
   </div>`;
@@ -732,11 +732,11 @@ function notFound() {
   return `<div class="not-found"><div class="not-found-num">404</div><h2>Page Not Found</h2><p>This page does not exist or has been moved.</p><a href="#/" class="btn-primary" data-link>Return Home</a></div>`;
 }
 
-// ── INIT ────────────────────────────────────────────────────────────────────
+// â”€â”€ INIT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 window.addEventListener('hashchange', router);
 router();
 
-// ── SCROLL ANIMATIONS ───────────────────────────────────────────────────────
+// â”€â”€ SCROLL ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const scrollCSS = document.createElement('style');
 scrollCSS.textContent = `
   .sa { opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -802,7 +802,7 @@ function initScrollAnimations() {
     ['.metric-val', 'sa sa-num sa-up sa-d2'],
     ['.ch-hud-val', 'sa sa-num sa-up sa-d3'],
 
-    // Cards — stagger by position
+    // Cards â€” stagger by position
     ['.ops-cell', 'sa sa-up'],
     ['.svc-row', 'sa sa-up'],
     ['.service-card', 'sa sa-up'],
@@ -897,5 +897,6 @@ window.addEventListener('hashchange', () => {
 });
 // Also on first load
 setTimeout(initScrollAnimations, 120);
+
 
 
