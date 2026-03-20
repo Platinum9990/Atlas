@@ -3,6 +3,7 @@
   function initHam() {
     var btn = document.getElementById('navHam');
     var overlay = document.getElementById('navOverlay');
+    var closeBtn = document.getElementById('navClose');
     if (!btn || !overlay) return;
 
     function openMenu() {
@@ -21,14 +22,17 @@
       else openMenu();
     });
 
+    // Close button inside drawer
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+    // Close on backdrop click (clicking outside the drawer panel)
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeMenu();
+    });
+
     // Close on any link click inside overlay
     overlay.querySelectorAll('[data-link]').forEach(function(a) {
       a.addEventListener('click', closeMenu);
-    });
-
-    // Close on outside click
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeMenu();
     });
   }
 
@@ -139,6 +143,22 @@ function bindEvents() {
       filterProjects(btn.dataset.filter || 'all');
     });
   });
+  const mapTabs = document.querySelectorAll('[data-map-tab]');
+  if (mapTabs.length) {
+    const sidebar = document.querySelector('.map-sidebar');
+    const mapContainer = document.querySelector('.map-container');
+    const setView = (view) => {
+      if (!sidebar || !mapContainer) return;
+      const isList = view === 'list';
+      sidebar.classList.toggle('mobile-active', isList);
+      mapContainer.classList.toggle('mobile-hidden', isList);
+      mapTabs.forEach(btn => btn.classList.toggle('active', btn.dataset.mapTab === view));
+    };
+    mapTabs.forEach(btn => {
+      btn.addEventListener('click', () => setView(btn.dataset.mapTab));
+    });
+    setView('map');
+  }
   document.querySelectorAll('.footer-scroll').forEach(el => {
     el.addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
   });
@@ -271,7 +291,7 @@ function homePage() {
       letter-spacing: 0.12em; text-transform: uppercase;
       background: var(--blue); color: var(--navy);
       padding: 0.9rem 1.75rem; text-decoration: none;
-      transition: background 0.2s; cursor: pointer; display: inline-block;
+      transition: background 0.2s; cursor: none; display: inline-block;
     }
     .ah-btn-main:hover { background: #D4A853; }
     .ah-btn-ghost {
@@ -280,7 +300,7 @@ function homePage() {
       background: transparent; color: var(--white);
       border: 1px solid rgba(255,255,255,0.2);
       padding: 0.9rem 1.75rem; text-decoration: none;
-      transition: border-color 0.2s; cursor: pointer; display: inline-block;
+      transition: border-color 0.2s; cursor: none; display: inline-block;
     }
     .ah-btn-ghost:hover { border-color: rgba(255,255,255,0.6); }
 
@@ -350,7 +370,7 @@ function homePage() {
     .ah-svc {
       display: flex; align-items: center; gap: 2rem;
       padding: 1.35rem 0; border-bottom: 1px solid rgba(14,165,233,0.08);
-      text-decoration: none; cursor: pointer;
+      text-decoration: none; cursor: none;
       position: relative; overflow: hidden;
       transition: padding-left 0.3s cubic-bezier(0.16,1,0.3,1);
     }
@@ -896,21 +916,32 @@ function solutionsPage() {
 
 function projectsPage() {
   const listHTML = projects.map(p=>`
-  <div class="map-project-item" data-id="${p.id}" onclick="selectProject('${p.id}')">
+  <div class="map-project-item" data-id="${p.id}" onclick="selectProject('${p.id}');if(window.innerWidth<=768){switchMapTab('map')}">
     <div class="mpi-header">
       <div class="mpi-title">${p.title}</div>
       <span class="mpi-status ${p.status}">${p.status.toUpperCase()}</span>
     </div>
-    <div class="mpi-loc">ðŸ“ ${p.loc}</div>
+    <div class="mpi-loc">&#9679; ${p.loc}</div>
     <div class="mpi-tags">${p.tags.map(t=>`<span class="mpi-tag">${t}</span>`).join('')}</div>
   </div>`).join('');
 
   return `
-  <div class="map-page">
-    <div class="map-sidebar">
+  <div class="map-page" id="map-page">
+
+    <!-- MOBILE TAB BAR -->
+    <div class="map-tab-bar" id="mapTabBar">
+      <button class="map-tab" id="tabList" onclick="switchMapTab('list')">
+        <span class="map-tab-icon">&#9776;</span> Projects
+      </button>
+      <button class="map-tab active" id="tabMap" onclick="switchMapTab('map')">
+        <span class="map-tab-icon">&#9654;</span> Map
+      </button>
+    </div>
+
+    <div class="map-sidebar" id="mapSidebar">
       <div class="map-sidebar-header">
         <div class="map-sidebar-title">Project Footprint</div>
-        <div class="map-sidebar-sub">// ${projects.length} projects Â· 10 countries</div>
+        <div class="map-sidebar-sub">// ${projects.length} projects &middot; 10 countries</div>
       </div>
       <div class="map-filters">
         <button class="map-filter active" data-filter="all">All</button>
@@ -922,19 +953,46 @@ function projectsPage() {
       </div>
       <div class="map-project-list" id="project-list">${listHTML}</div>
     </div>
-    <div class="map-container">
+
+    <div class="map-container" id="mapContainer">
       <div id="leaflet-map"></div>
       <div class="map-detail-panel" id="detail-panel">
-        <button class="mdp-close" onclick="closePanel()">âœ•</button>
+        <button class="mdp-close" onclick="closePanel()">&#10005;</button>
         <div id="detail-content"></div>
         <a href="#/contact" class="btn-primary" data-link style="width:100%;justify-content:center;margin-top:0.5rem">Enquire About This Project</a>
       </div>
+      <!-- Floating badge — tap to see project list -->
+      <div class="map-mobile-count" onclick="switchMapTab('list')">
+        <span class="map-mobile-count-dot"></span>
+        ${projects.length} Projects &mdash; View List
+      </div>
       <div class="map-coords-bar">
         <span id="map-coords">// Move cursor over map</span>
-        <span>ATLAS INFRASTRUCTURE Â· PROJECT FOOTPRINT</span>
+        <span>ATLAS INFRASTRUCTURE &middot; PROJECT FOOTPRINT</span>
       </div>
     </div>
   </div>`;
+}
+
+function switchMapTab(tab) {
+  const sidebar = document.getElementById('mapSidebar');
+  const mapContainer = document.getElementById('mapContainer');
+  const tabList = document.getElementById('tabList');
+  const tabMap = document.getElementById('tabMap');
+  if (!sidebar || !mapContainer) return;
+  if (tab === 'list') {
+    sidebar.classList.add('mobile-active');
+    mapContainer.classList.add('mobile-hidden');
+    if (tabList) tabList.classList.add('active');
+    if (tabMap) tabMap.classList.remove('active');
+  } else {
+    sidebar.classList.remove('mobile-active');
+    mapContainer.classList.remove('mobile-hidden');
+    if (tabMap) tabMap.classList.add('active');
+    if (tabList) tabList.classList.remove('active');
+    // Invalidate map size after transition
+    setTimeout(() => { if(mapInstance) mapInstance.invalidateSize(); }, 350);
+  }
 }
 
 function initMap() {
@@ -943,7 +1001,7 @@ function initMap() {
     if (!mapEl) return;
     const isMobile = window.innerWidth < 720;
     const baseZoom = isMobile ? 4.5 : 4;
-    const markerSize = isMobile ? 12 : 14;
+    const markerSize = isMobile ? 16 : 14;
     const map = L.map('leaflet-map', {
       center: [8, 15],
       zoom: baseZoom,
@@ -999,7 +1057,7 @@ window.selectProject = function(id, mapRef) {
   content.innerHTML = `
     <div class="mdp-tag">${p.service} Â· ${p.tags.join(' Â· ')}</div>
     <div class="mdp-title">${p.title}</div>
-    <div class="mdp-loc">ðŸ“ ${p.loc}</div>
+    <div class="mdp-loc">&#128205; ${p.loc}</div>
     <div class="mdp-desc">${p.desc}</div>
     <div class="mdp-specs">
       <div><div class="mdp-spec-label">Capacity</div><div class="mdp-spec-val">${p.capacity}</div></div>
@@ -1012,10 +1070,7 @@ window.selectProject = function(id, mapRef) {
     </div>`;
   panel.classList.add('open');
 
-  if (mapInstance) {
-    const focusZoom = window.innerWidth < 720 ? 5.2 : 6;
-    mapInstance.flyTo([p.lat, p.lng], focusZoom, {duration: 1});
-  }
+  if (mapInstance) mapInstance.flyTo([p.lat, p.lng], 6, {duration: 1});
 };
 
 window.closePanel = function() {
@@ -1221,6 +1276,26 @@ function contactPage() {
 
 function notFound() {
   return `<div class="not-found"><div class="not-found-num">404</div><h2>Page Not Found</h2><p>This page does not exist or has been moved.</p><a href="#/" class="btn-primary" data-link>Return Home</a></div>`;
+}
+
+// â”€â”€ CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+if (cursor && ring) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+  (function animRing() {
+    rx += (mx - rx) * 0.1;
+    ry += (my - ry) * 0.1;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
 }
 
 // â”€â”€ INIT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€

@@ -12,6 +12,9 @@
 </head>
 <body>
 
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <nav>
     <a href="#/" class="nav-logo" data-link>
       <div class="nav-logo-mark"><span>A</span></div>
@@ -31,19 +34,40 @@
     </button>
   </nav>
 
-  <!-- MOBILE MENU OVERLAY -->
+  <!-- MOBILE DRAWER -->
   <div class="nav-mobile-overlay" id="navOverlay">
     <div class="nav-mobile-inner">
-      <div class="nav-mobile-links">
-        <a href="#/" class="nav-mobile-link" data-link>Home</a>
-        <a href="#/about" class="nav-mobile-link" data-link>About</a>
-        <a href="#/services" class="nav-mobile-link" data-link>Services</a>
-        <a href="#/solutions" class="nav-mobile-link" data-link>Solutions</a>
-        <a href="#/projects" class="nav-mobile-link" data-link>Projects</a>
-        <a href="#/why-us" class="nav-mobile-link" data-link>Why ATLAS</a>
-        <a href="#/news" class="nav-mobile-link" data-link>News</a>
+      <div class="nav-mobile-header">
+        <span class="nav-mobile-brand">Atlas</span>
+        <button class="nav-mobile-close" id="navClose" aria-label="Close menu">&#10005;</button>
       </div>
-      <a href="#/contact" class="nav-mobile-cta" data-link>Contact Us &rarr;</a>
+      <div class="nav-mobile-links">
+        <a href="#/" class="nav-mobile-link" data-link>
+          <span class="nav-mobile-link-num">01</span>Home
+        </a>
+        <a href="#/about" class="nav-mobile-link" data-link>
+          <span class="nav-mobile-link-num">02</span>About
+        </a>
+        <a href="#/services" class="nav-mobile-link" data-link>
+          <span class="nav-mobile-link-num">03</span>Services
+        </a>
+        <a href="#/solutions" class="nav-mobile-link" data-link>
+          <span class="nav-mobile-link-num">04</span>Solutions
+        </a>
+        <a href="#/projects" class="nav-mobile-link" data-link>
+          <span class="nav-mobile-link-num">05</span>Projects
+        </a>
+        <a href="#/why-us" class="nav-mobile-link" data-link>
+          <span class="nav-mobile-link-num">06</span>Why ATLAS
+        </a>
+        <a href="#/news" class="nav-mobile-link" data-link>
+          <span class="nav-mobile-link-num">07</span>News
+        </a>
+      </div>
+      <div class="nav-mobile-footer">
+        <a href="#/contact" class="nav-mobile-cta" data-link>Get in Touch &rarr;</a>
+        <div class="nav-mobile-meta">Africa&rsquo;s Leading Infrastructure Contractor</div>
+      </div>
     </div>
   </div>
 
