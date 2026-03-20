@@ -6,15 +6,20 @@
     var closeBtn = document.getElementById('navClose');
     if (!btn || !overlay) return;
 
+    if (btn.dataset.hamBound === 'true') return;
+    btn.dataset.hamBound = 'true';
+
     function openMenu() {
       btn.classList.add('open');
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
+      btn.setAttribute('aria-expanded', 'true');
     }
     function closeMenu() {
       btn.classList.remove('open');
       overlay.classList.remove('open');
       document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
     }
 
     btn.addEventListener('click', function() {
@@ -1444,6 +1449,7 @@ window.addEventListener('hashchange', () => {
 });
 // Also on first load
 setTimeout(initScrollAnimations, 120);
+
 
 
 
